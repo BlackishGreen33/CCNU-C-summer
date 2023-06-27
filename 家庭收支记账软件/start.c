@@ -17,54 +17,54 @@ int main(){
 
     while(1){
         system("cls");
-        printf("--------®a®x¦¬¤ä°O±b³n¥ó--------\n");
-        printf("\t1. ¦¬¤ä©ú²Ó\n");
-        printf("\t2. µn°O¦¬¤J\n");
-        printf("\t3. µn°O¤ä¥X\n");
-        printf("\t4. °h  ¥X\n\n");
-        printf("\t½Ğ¿ï¾Ü(1~4):");
+        printf("--------å®¶åº­æ”¶æ”¯è®°è´¦è½¯ä»¶--------\n");
+        printf("\t1. æ”¶æ”¯æ˜ç»†\n");
+        printf("\t2. ç™»è®°æ”¶å…¥\n");
+        printf("\t3. ç™»è®°æ”¯å‡º\n");
+        printf("\t4. é€€  å‡º\n\n");
+        printf("\tè¯·é€‰æ‹©(1~4):");
         scanf("%d", &option);
 
         if(option == 2 || option == 3){
             if(num_transactions == MAX_TRANSACTIONS){
-                printf("¤w¹F¨ì³Ì¤j¥æ©ö¼Æ¶q¡C\n");
+                printf("å·²è¾¾åˆ°æœ€å¤§äº¤æ˜“æ•°é‡ã€‚\n");
                 continue;
             }
             struct Transaction t;
-            printf("\n¥»¦¸ª÷ÃB: ");
+            printf("\næœ¬æ¬¡é‡‘é¢: ");
             scanf("%f", &t.amount);
-            printf("¥»¦¸»¡©ú: ");
+            printf("æœ¬æ¬¡è¯´æ˜: ");
             scanf("%s", t.description);
 
             if(option == 3){
                 t.amount = -t.amount; 
-                strcpy(t.type, "¤ä¥X");
+                strcpy(t.type, "æ”¯å‡º");
                 float total = 0;
                 for(int i = 0; i < num_transactions; i++){
                     struct Transaction t = transactions[i];
                     total += t.amount;
                 }
                 if(total + t.amount < 0){
-                    printf("\n¾lÃB¤£¨¬¡AµLªk§¹¦¨¦¹¦¸¤ä¥X¡C\n");
+                    printf("\nä½™é¢ä¸è¶³ï¼Œä¸èƒ½è®°å½•æ”¯å‡ºã€‚\n");
                     system("pause");
                     continue;
                 }
             }
-            else strcpy(t.type, "¦¬¤J");
+            else strcpy(t.type, "æ”¶å…¥");
             transactions[num_transactions++] = t;
-            printf("\n¬ö¿ı¦¨¥\²K¥[\n");
+            printf("\nè®°å½•æˆåŠŸæ·»åŠ ã€‚\n");
             system("pause");
         } 
-        
+    
         else if(option == 1){
             if(num_transactions == 0){
-                printf("\n·í«e¨S¦³¦¬¤ä¬ö¿ı...¨Ó¤@µ§§a¡I\n");
+                printf("\nå½“å‰æ²¡æœ‰æ”¶æ”¯è®°å½•...æ¥ä¸€ç¬”å§ï¼\n");
                 system("pause");
                 continue;
             }
 
             float total = 0;
-            printf("\n¦¬¤ä\t\t¦¬¤äª÷ÃB\t±b¤áª÷ÃB\t»¡  ©ú\n");
+            printf("\næ”¶æ”¯\t\tæ”¶æ”¯é‡‘é¢\tè´¦æˆ·é‡‘é¢\tè¯´æ˜\n");
             printf("-------------------------------------------------------\n");
             for (int i = 0; i < num_transactions; i++) {
                 struct Transaction t = transactions[i];
@@ -72,22 +72,22 @@ int main(){
                 total += t.amount;
             }
             printf("-------------------------------------------------------\n");
-            printf("¥Ø«e±b¤áª÷ÃB\t\t\t\t\t%.2f\n", total);
+            printf("å½“å‰è´¦æˆ·é‡‘é¢\t\t\t\t\t%.2f\n", total);
             system("pause");
         }
-        
+    
         else if(option == 4){
-            printf("\n§A½T©w­n°h¥X¶Ü¡H(y/n)");
+            printf("\nä½ ç¡®å®šè¦é€€å‡ºå—ï¼Ÿ(y/n)");
             scanf(" %c", &ch);
             if(ch == 'y') break;
             if(ch == 'n') continue;
         }
-        
+    
         else{
-			printf("\n¿ï¶µµL®Ä\n");
-			system("pause");
-		}
+		    printf("\né€‰é¡¹æ— æ•ˆã€‚\n");
+		    system("pause");
+	    }
     }
-    printf("\n¦A¨£¡I");
+    printf("\nå†è§ï¼");
     return 0;
 }
