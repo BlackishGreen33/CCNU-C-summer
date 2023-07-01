@@ -14,11 +14,12 @@ typedef enum {
 
 // 選課管理菜單
 void teacher_selection_management_menu() {
-    printf("選課管理\n");
-    printf("1. 查詢選課信息\n");
-    printf("2. 修改學生成績\n");
-    printf("3. 返回主菜單\n");
-    printf("請選擇操作：");
+    system("cls");
+    printf("============選課管理============\n");
+    printf("\t1. 查詢選課信息\n");
+    printf("\t2. 修改學生成績\n");
+    printf("\t3. 返回\n");
+    printf("\t請選擇操作：");
 }
 
 // 查詢選課信息
@@ -32,7 +33,8 @@ void query_selections(Teaching teachings[], int teaching_count, Selection select
         }
     }
     if (teaching_index != -1) { // 找到授課信息
-        printf("選修%s課程的學生信息：\n", course_id);
+        printf("\n選修%s課程的學生信息：\n", course_id);
+        printf("================================\n");
         printf("學生編號\t學生姓名\t學生性別\t所在班級\t學生成績\n");
         // 遍歷選課信息數組，打印該課程的所有選課學生信息
         for (int i = 0; i < selection_count; i++) {
@@ -42,7 +44,7 @@ void query_selections(Teaching teachings[], int teaching_count, Selection select
         }
     }
     else {
-        printf("您未教授該課程或該課程不存在\n");
+        printf("\n您未教授該課程或該課程不存在\n");
     }
 }
 
@@ -61,7 +63,7 @@ void modify_score(Selection selections[], int selection_count, char student_id[]
         printf("學生成績修改成功\n");
     }
     else {
-        printf("該學生未選修該課程或該課程不存在\n");
+        printf("\n該學生未選修該課程或該課程不存在\n");
     }
 }
 
@@ -77,42 +79,44 @@ void teacher_selection_management() {
     }
     if (user_index != -1 && users[user_index].role == 2) { // 當前用戶為教師
         int option = 0; // 初始化選項為0
-        do {
+        while (1) {
             teacher_selection_management_menu();
             scanf("%d", &option);
             switch (option) {
-            case QUERY_SELECTIONS: // 查詢選課信息
-            {
-                char course_id[20]; // 課程編號
-                printf("請輸入課程編號：");
-                scanf("%s", course_id);
-                query_selections(teachings, teaching_count, selections, selection_count, users[user_index].user_id, course_id);
-            }
-            break;
-            case MODIFY_SCORE: // 修改學生成績
-            {
-                char student_id[20]; // 學生編號
-                char course_id[20]; // 課程編號
-                float score; // 學生成績
-                printf("請輸入學生編號：");
-                scanf("%s", student_id);
-                printf("請輸入課程編號：");
-                scanf("%s", course_id);
-                printf("請輸入學生成績：");
-                scanf("%f", &score);
-                modify_score(selections, selection_count, student_id, course_id, score);
-            }
-            break;
-            case RETURN_MAIN_MENU: // 返回主菜單
-                printf("返回主菜單\n");
+            case QUERY_SELECTIONS:
+                {
+                    char course_id[20]; // 課程編號
+                    printf("\n請輸入課程編號：");
+                    scanf("%s", course_id);
+                    query_selections(teachings, teaching_count, selections, selection_count, users[user_index].user_id, course_id);
+                }
+                system("pause");
                 break;
+            case MODIFY_SCORE:
+                {
+                    char student_id[20]; // 學生編號
+                    char course_id[20]; // 課程編號
+                    float score; // 學生成績
+                    printf("\n請輸入學生編號：");
+                    scanf("%s", student_id);
+                    printf("請輸入課程編號：");
+                    scanf("%s", course_id);
+                    printf("請輸入學生成績：");
+                    scanf("%f", &score);
+                    modify_score(selections, selection_count, student_id, course_id, score);
+                }
+                system("pause");
+                break;
+            case RETURN_MAIN_MENU:
+                return;
             default:
-                printf("無效選項，請重新輸入\n");
+                printf("\n無效選項，請重新輸入\n");
+                system("pause");
                 break;
             }
-        } while (option != RETURN_MAIN_MENU);
+        }
     }
     else {
-        printf("用戶不存在或不是教師\n");
+        printf("\n用戶不存在或不是教師\n");
     }
 }

@@ -25,7 +25,8 @@ void query_teacher_teaching_info() {
             }
         }
         if (teacher_index != -1) { // 找到教師
-            printf("%s授課信息：\n", teachers[teacher_index].name);
+            printf("\n%s授課信息：\n", teachers[teacher_index].name);
+            printf("================================\n");
             printf("授課ID\t課程編號\t課程名稱\t任課教師\n");
             // 遍歷授課信息數組，打印該教師的所有授課信息
             for (int i = 0; i < teaching_count; i++) {
@@ -39,6 +40,6 @@ void query_teacher_teaching_info() {
         }
     }
     else {
-        printf("用戶不存在或不是教師\n");
+        printf("\n用戶不存在或不是教師\n");
     }
 }

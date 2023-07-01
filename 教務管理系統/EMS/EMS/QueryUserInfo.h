@@ -17,12 +17,12 @@ void query_user_info() {
     }
     if (index != -1) {
         // 找到用戶並打印用戶信息
-        printf("用戶ID：%s\n", users[index].user_id);
+        printf("\n用戶ID：%s\n", users[index].user_id);
         printf("用戶名：%s\n", users[index].username);
         printf("用戶密碼：%s\n", users[index].password);
         printf("用戶權限：%d\n", users[index].role);
     }
     else {
-        printf("用戶不存在\n");
+        printf("\n用戶不存在\n");
     }
 }

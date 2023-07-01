@@ -8,7 +8,7 @@
 
 void modify_password() {
     char new_password[20];
-    printf("請輸入新密碼：");
+    printf("\n請輸入新密碼：");
     scanf("%s", new_password);
     int index = -1; // 初始化找到的用戶下標為-1
     // 在用戶數組中查找當前用戶的下標

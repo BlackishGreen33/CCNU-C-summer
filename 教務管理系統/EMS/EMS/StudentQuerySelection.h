@@ -11,7 +11,7 @@ void student_query_selection() {
     for (int i = 0; i < selection_count; i++) {
         if (selections[i].course.is_selected == 0) {
             // 輸出該選課信息對應的選課ID和課程信息
-            printf("選課ID：%d\n", selections[i].select_id);
+            printf("\n選課ID：%d\n", selections[i].select_id);
             printf("課程編號：%s\n", selections[i].course.course_id);
             printf("課程名稱：%s\n", selections[i].course.name);
             printf("課程性質：%s\n", selections[i].course.nature);

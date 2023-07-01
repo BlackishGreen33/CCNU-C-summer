@@ -12,25 +12,25 @@ enum TeacherMenuOption {
     TEACHER_QUERY_COURSE_INFO,
     TEACHER_QUERY_STUDENT_INFO,
     TEACHER_SELECTION_MANAGEMENT,
-    TEACHER_RETURN
+    TEACHER_EXIT
 };
 
 void teacher_menu() {
     system("cls");
-    printf("===========教師界面===========\n");
+    printf("============教師界面============\n");
     printf("\t1. 修改用戶密碼\n");
     printf("\t2. 教師信息查詢\n");
     printf("\t3. 課程信息查詢\n");
     printf("\t4. 學生信息查詢\n");
     printf("\t5. 選課管理\n");
-    printf("\t6. 返回主菜單\n");
+    printf("\t6. 退出\n");
     printf("\t請選擇操作：");
 }
 
 void teacher_interface() {
-    int choice;
-    do {
+    while (1) {
         teacher_menu();
+        int choice;
         scanf("%d", &choice);
         switch (choice) {
         case TEACHER_MODIFY_PASSWORD:
@@ -53,14 +53,14 @@ void teacher_interface() {
             teacher_selection_management();
             system("pause");
             break;
-        case TEACHER_RETURN:
-            printf("再見！\n");
+        case TEACHER_EXIT:
+            printf("\n再見！\n");
             system("pause");
             exit(0);
         default:
-            printf("無效選項，請重新輸入\n");
+            printf("\n無效選項，請重新輸入\n");
             system("pause");
             break;
         }
-    } while (choice != TEACHER_RETURN);
+    }
 }

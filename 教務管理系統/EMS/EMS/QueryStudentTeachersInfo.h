@@ -17,7 +17,7 @@ void query_student_teachers_info() {
     }
     if (user_index != -1 && users[user_index].role == 3) { // 當前用戶為學生
         char teacher_id[20]; // 教師編號
-        printf("請輸入教師編號：");
+        printf("\n請輸入教師編號：");
         scanf("%s", teacher_id);
         int selection_index = -1; // 初始化找到的選課下標為-1
         // 在選課信息數組中查找該學生對應的選課信息的下標
@@ -60,6 +60,6 @@ void query_student_teachers_info() {
         }
     }
     else {
-        printf("用戶不存在或不是學生\n");
+        printf("\n用戶不存在或不是學生\n");
     }
 }

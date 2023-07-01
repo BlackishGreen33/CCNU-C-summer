@@ -24,7 +24,7 @@ void query_student_selection_info() {
             }
         }
         if (student_index != -1) { // 找到學生
-            printf("%s課程信息：\n", students[student_index].name);
+            printf("\n%s課程信息：\n", students[student_index].name);
             // 遍歷授課信息數組，打印該教師的所有授課信息
             for (int i = 0; i < selection_count; i++) {
                 if (strcmp(selections[i].student.student_id, students[student_index].student_id) == 0) {
@@ -45,10 +45,10 @@ void query_student_selection_info() {
             }
         }
         else {
-            printf("用戶不存在或不是學生\n");
+            printf("\n用戶不存在或不是學生\n");
         }
     }
     else {
-        printf("用戶不存在或不是學生\n");
+        printf("\n用戶不存在或不是學生\n");
     }
 }

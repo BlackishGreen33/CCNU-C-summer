@@ -17,7 +17,7 @@ void query_teacher_students_info() {
     }
     if (user_index != -1 && users[user_index].role == 2) { // 當前用戶為教師
         char student_id[20]; // 學生編號
-        printf("請輸入學生編號：");
+        printf("\n請輸入學生編號：");
         scanf("%s", student_id);
         int teaching_index = -1; // 初始化找到的授課下標為-1
         // 在授課信息數組中查找該教師對應的授課信息的下標
@@ -37,6 +37,7 @@ void query_teacher_students_info() {
         }
         if (teaching_index != -1) { // 找到授課信息
             printf("學生%s選擇的課程：\n", student_id);
+            printf("================================\n");
             printf("課程編號\t課程名稱\t課程性質\t學時\t學分\t開課學期\t是否正在講授\t是否被選修\n");
             // 遍歷選課信息數組，打印該學生已選的該教師的所有課程信息
             for (int i = 0; i < selection_count; i++) {
@@ -46,7 +47,7 @@ void query_teacher_students_info() {
             }
         }
         else {
-            printf("該學生未選修您的課程\n");
+            printf("\n該學生未選修您的課程\n");
         }
     }
     else {
