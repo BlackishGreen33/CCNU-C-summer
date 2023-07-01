@@ -64,6 +64,11 @@ void add_user() {
 	printf("用戶角色（1.管理員，2.教師，3.學生）：");
 	scanf("%d", &user.role);
 	users[user_count++] = user;
+
+	//文件读写
+	write_user();
+	read_user();
+
 	printf("添加成功！\n");
 }
 
@@ -90,6 +95,10 @@ void modify_user() {
 		printf("請輸入新的用戶角色（1.管理員，2.教師，3.學生）：");
 		scanf("%d", &users[index].role);
 		printf("修改成功！\n");
+
+		//文件读写
+		write_user();
+		read_user();
 	}
 }
 
@@ -115,6 +124,10 @@ void delete_user() {
 		}
 		user_count--;
 		printf("刪除成功！\n");
+
+		//文件读写
+		write_user();
+		read_user();
 	}
 }
 

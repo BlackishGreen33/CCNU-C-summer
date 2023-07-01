@@ -91,6 +91,10 @@ void add_teaching() {
     teaching_count++;
 
     printf("授課信息添加成功！\n");
+
+    //文件读写
+    write_teaching();
+    read_teaching();
 }
 
 // 修改授課信息
@@ -158,6 +162,10 @@ void modify_teaching() {
     teachings[found_index].teacher = teacher;
 
     printf("授課信息修改成功！\n");
+
+    //文件读写
+    write_teaching();
+    read_teaching();
 }
 
 // 刪除授課
@@ -193,6 +201,10 @@ void delete_teaching() {
     teaching_count--;
 
     printf("授課信息刪除成功！\n");
+
+    //文件读写
+    write_teaching();
+    read_teaching();
 }
 
 // 授課管理

@@ -51,6 +51,10 @@ void add_student() {
     scanf("%s", student.classroom);
     students[student_count++] = student;
     printf("添加成功！\n");
+
+    //文件读写
+    write_student();
+    read_student();
 }
 
 // 修改學生信息
@@ -76,6 +80,10 @@ void modify_student() {
         printf("請輸入新的學生班級：");
         scanf("%s", students[index].classroom);
         printf("修改成功！\n");
+
+        //文件读写
+        write_student();
+        read_student();
     }
 }
 
@@ -101,6 +109,10 @@ void delete_student() {
         }
         student_count--;
         printf("刪除成功！\n");
+
+        //文件读写
+        write_student();
+        read_student();
     }
 }
 

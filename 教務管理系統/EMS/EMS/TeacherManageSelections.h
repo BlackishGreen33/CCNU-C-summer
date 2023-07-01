@@ -61,6 +61,10 @@ void modify_score(Selection selections[], int selection_count, char student_id[]
     if (selection_index != -1) { // 找到選課信息
         selections[selection_index].score = score;
         printf("學生成績修改成功\n");
+
+        //文件读写
+        write_selection();
+        read_selection();
     }
     else {
         printf("\n該學生未選修該課程或該課程不存在\n");

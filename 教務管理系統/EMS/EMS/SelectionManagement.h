@@ -82,6 +82,10 @@ void add_selection() {
             selections[selection_count] = selection;
             selection_count++;
             printf("新增選課成功\n");
+            printf("%d\n", selection.select_id);
+            //文件读写
+            write_selection();
+            read_selection();
         }
     }
     else {
@@ -108,6 +112,10 @@ void modify_selection() {
         printf("請輸入新的學生成績：");
         scanf("%f", &selections[index].score);
         printf("修改選課成功\n");
+
+        //文件读写
+        write_selection();
+        read_selection();
     }
     else {
         printf("選課信息不存在\n");
@@ -134,6 +142,10 @@ void delete_selection() {
         }
         selection_count--;
         printf("刪除選課成功\n");
+
+        //文件读写
+        write_selection();
+        read_selection();
     }
     else {
         printf("選課信息不存在\n");

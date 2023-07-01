@@ -57,6 +57,10 @@ void add_course() {
     course.is_selected = 0;
     courses[course_count++] = course;
     printf("添加成功！\n");
+
+    //文件读写
+    write_course();
+    read_course();
 }
 
 // 修改課程信息
@@ -89,6 +93,10 @@ void modify_course() {
         printf("請輸入新的開課學期：");
         scanf("%s", courses[index].term);
         printf("修改成功！\n");
+
+        //文件读写
+        write_course();
+        read_course();
     }
 }
 
@@ -116,6 +124,10 @@ void delete_course() {
         }
         course_count--;
         printf("刪除成功！\n");
+
+        //文件读写
+        write_course();
+        read_course();
     }
 }
 

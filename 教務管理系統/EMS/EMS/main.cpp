@@ -4,8 +4,8 @@
 #include "StudentInterface.h"
 
 int main() {
+    Read();
     int role = user_login(); // 調用用戶登錄函數
-
     // 根據權限進入不同界面
     if (role == 1) {
         printf("\n歡迎進入學院教務系統管理界面！\n");

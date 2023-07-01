@@ -53,6 +53,10 @@ void add_teacher() {
 	scanf("%s", teacher.title);
 	teachers[teacher_count++] = teacher;
 	printf("添加成功！\n");
+
+	//文件读写
+	write_teacher();
+	read_teacher();
 }
 
 // 修改教師信息
@@ -80,6 +84,10 @@ void modify_teacher() {
 		printf("請輸入新的教師職稱：");
 		scanf("%s", teachers[index].title);
 		printf("修改成功！\n");
+
+		//文件读写
+		write_teacher();
+		read_teacher();
 	}
 }
 
@@ -105,6 +113,10 @@ void delete_teacher() {
 		}
 		teacher_count--;
 		printf("刪除成功！\n");
+
+		//文件读写
+		write_teacher();
+		read_teacher();
 	}
 }
 

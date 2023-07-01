@@ -22,6 +22,10 @@ void modify_password() {
         // 找到用戶並修改密碼
         strcpy(users[index].password, new_password);
         printf("密碼修改成功\n");
+
+        //文件读写
+        write_user();
+        read_user();
     }
     else {
         printf("用戶不存在\n");
