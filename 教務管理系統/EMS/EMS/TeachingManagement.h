@@ -1,12 +1,12 @@
-#pragma once
+ï»¿#pragma once
 #pragma warning(disable:4996)
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "DataFormat.h" // ½Õ¥Î±Ğ°ÈºŞ²z¨t²Î¼Æ¾Ú®æ¦¡ÀY¤å¥ó
-#include "DataStorage.h" // ½Õ¥Î¥Î¤á¼Æ¾ÚÀY¤å¥ó
+#include "DataFormat.h" // èª¿ç”¨æ•™å‹™ç®¡ç†ç³»çµ±æ•¸æ“šæ ¼å¼é ­æ–‡ä»¶
+#include "DataStorage.h" // èª¿ç”¨ç”¨æˆ¶æ•¸æ“šé ­æ–‡ä»¶
 
-// ±Â½ÒºŞ²zµæ³æ¿ï¶µ
+// æˆèª²ç®¡ç†èœå–®é¸é …
 enum TeachingManagementOption {
     TEACHING_MANAGEMENT_QUERY_ALL_TEACHING = 1,
     TEACHING_MANAGEMENT_ADD_TEACHING,
@@ -15,23 +15,23 @@ enum TeachingManagementOption {
     TEACHING_MANAGEMENT_RETURN
 };
 
-// ±Â½ÒºŞ²zµæ³æ
+// æˆèª²ç®¡ç†èœå–®
 void teaching_management_menu() {
     system("cls");
-    printf("===========½Òµ{ºŞ²z===========\n");
-    printf("\t1. ¬d¸ß©Ò¦³±Â½Ò«H®§\n");
-    printf("\t2. ·s¼W±Â½Ò\n");
-    printf("\t3. ­×§ï±Â½Ò«H®§\n");
-    printf("\t4. §R°£±Â½Ò\n");
-    printf("\t5. ªğ¦^\n");
-    printf("\t½Ğ¿ï¾Ü¾Ş§@¡G");
+    printf("===========èª²ç¨‹ç®¡ç†===========\n");
+    printf("\t1. æŸ¥è©¢æ‰€æœ‰æˆèª²ä¿¡æ¯\n");
+    printf("\t2. æ–°å¢æˆèª²\n");
+    printf("\t3. ä¿®æ”¹æˆèª²ä¿¡æ¯\n");
+    printf("\t4. åˆªé™¤æˆèª²\n");
+    printf("\t5. è¿”å›\n");
+    printf("\tè«‹é¸æ“‡æ“ä½œï¼š");
 }
 
-// ¬d¸ß©Ò¦³±Â½Ò«H®§
+// æŸ¥è©¢æ‰€æœ‰æˆèª²ä¿¡æ¯
 void query_all_teaching() {
-    printf("©Ò¦³±Â½Ò«H®§¦p¤U¡G\n");
+    printf("æ‰€æœ‰æˆèª²ä¿¡æ¯å¦‚ä¸‹ï¼š\n");
     printf("================================\n");
-    printf("±Â½ÒID\t½Òµ{½s¸¹\t½Òµ{¦WºÙ\t±Ğ®v½s¸¹\t±Ğ®v©m¦W\n");
+    printf("æˆèª²ID\tèª²ç¨‹ç·¨è™Ÿ\tèª²ç¨‹åç¨±\tæ•™å¸«ç·¨è™Ÿ\tæ•™å¸«å§“å\n");
     for (int i = 0; i < teaching_count; i++) {
         printf("%d\t%s\t%s\t%s\t%s\n",
             teachings[i].teach_id,
@@ -42,16 +42,16 @@ void query_all_teaching() {
     }
 }
 
-// ·s¼W±Â½Ò
+// æ–°å¢æˆèª²
 void add_teaching() {
-    printf("\n½Ğ¿é¤J±Â½Ò«H®§¡G\n");
+    printf("\nè«‹è¼¸å…¥æˆèª²ä¿¡æ¯ï¼š\n");
     Teaching new_teaching;
 
-    // ³q¹L¿é¤J½Òµ{½s¸¹©M±Ğ®v½s¸¹¡A¬d§ä½Òµ{©M±Ğ®v«H®§
+    // é€šéè¼¸å…¥èª²ç¨‹ç·¨è™Ÿå’Œæ•™å¸«ç·¨è™Ÿï¼ŒæŸ¥æ‰¾èª²ç¨‹å’Œæ•™å¸«ä¿¡æ¯
     char course_id[20], teacher_id[20];
-    printf("½Ğ¿é¤J½Òµ{½s¸¹¡G");
+    printf("è«‹è¼¸å…¥èª²ç¨‹ç·¨è™Ÿï¼š");
     scanf("%s", course_id);
-    printf("½Ğ¿é¤J±Ğ®v½s¸¹¡G");
+    printf("è«‹è¼¸å…¥æ•™å¸«ç·¨è™Ÿï¼š");
     scanf("%s", teacher_id);
 
     Course course;
@@ -73,33 +73,33 @@ void add_teaching() {
     }
 
     if (!course_found) {
-        printf("¥¼§ä¨ì¸Ó½Òµ{«H®§¡A»İ­n¥ı²K¥[¸Ó½Òµ{\n");
+        printf("æœªæ‰¾åˆ°è©²èª²ç¨‹ä¿¡æ¯ï¼Œéœ€è¦å…ˆæ·»åŠ è©²èª²ç¨‹\n");
         return;
     }
     if (!teacher_found) {
-        printf("¥¼§ä¨ì¸Ó±Ğ®v«H®§¡A»İ­n¥ı²K¥[¸Ó±Ğ®v\n");
+        printf("æœªæ‰¾åˆ°è©²æ•™å¸«ä¿¡æ¯ï¼Œéœ€è¦å…ˆæ·»åŠ è©²æ•™å¸«\n");
         return;
     }
 
-    // ³]¸m±Â½Ò«H®§
+    // è¨­ç½®æˆèª²ä¿¡æ¯
     new_teaching.course = course;
     new_teaching.teacher = teacher;
     new_teaching.teach_id = teaching_count + 1;
 
-    // ±N·s±Â½Ò«H®§²K¥[¨ì¦Cªí¤¤
+    // å°‡æ–°æˆèª²ä¿¡æ¯æ·»åŠ åˆ°åˆ—è¡¨ä¸­
     teachings[teaching_count] = new_teaching;
     teaching_count++;
 
-    printf("±Â½Ò«H®§²K¥[¦¨¥\¡I\n");
+    printf("æˆèª²ä¿¡æ¯æ·»åŠ æˆåŠŸï¼\n");
 }
 
-// ­×§ï±Â½Ò«H®§
+// ä¿®æ”¹æˆèª²ä¿¡æ¯
 void modify_teaching() {
-    printf("\n½Ğ¿é¤J­n­×§ïªº±Â½ÒID¡G");
+    printf("\nè«‹è¼¸å…¥è¦ä¿®æ”¹çš„æˆèª²IDï¼š");
     int teach_id;
     scanf("%d", &teach_id);
 
-    // ¬d§ä­n­×§ïªº±Â½Ò«H®§
+    // æŸ¥æ‰¾è¦ä¿®æ”¹çš„æˆèª²ä¿¡æ¯
     int found_index = -1;
     for (int i = 0; i < teaching_count; i++) {
         if (teachings[i].teach_id == teach_id) {
@@ -109,21 +109,21 @@ void modify_teaching() {
     }
 
     if (found_index == -1) {
-        printf("¥¼§ä¨ì¸Ó±Â½Ò«H®§¡I\n");
+        printf("æœªæ‰¾åˆ°è©²æˆèª²ä¿¡æ¯ï¼\n");
         return;
     }
 
-    // §PÂ_¸Ó½Òµ{¬O§_¥¿¦b³Q¿ï­×
+    // åˆ¤æ–·è©²èª²ç¨‹æ˜¯å¦æ­£åœ¨è¢«é¸ä¿®
     if (teachings[found_index].course.is_selected) {
-        printf("¸Ó½Òµ{¥¿¦b³Q¿ï­×¡AµLªk­×§ï¡I\n");
+        printf("è©²èª²ç¨‹æ­£åœ¨è¢«é¸ä¿®ï¼Œç„¡æ³•ä¿®æ”¹ï¼\n");
         return;
     }
 
-    // ³q¹L¿é¤J½Òµ{½s¸¹©M±Ğ®v½s¸¹¡A¬d§ä½Òµ{©M±Ğ®v«H®§
+    // é€šéè¼¸å…¥èª²ç¨‹ç·¨è™Ÿå’Œæ•™å¸«ç·¨è™Ÿï¼ŒæŸ¥æ‰¾èª²ç¨‹å’Œæ•™å¸«ä¿¡æ¯
     char course_id[20], teacher_id[20];
-    printf("½Ğ¿é¤J·sªº½Òµ{½s¸¹¡G");
+    printf("è«‹è¼¸å…¥æ–°çš„èª²ç¨‹ç·¨è™Ÿï¼š");
     scanf("%s", course_id);
-    printf("½Ğ¿é¤J·sªº±Ğ®v½s¸¹¡G");
+    printf("è«‹è¼¸å…¥æ–°çš„æ•™å¸«ç·¨è™Ÿï¼š");
     scanf("%s", teacher_id);
 
     Course course;
@@ -145,28 +145,28 @@ void modify_teaching() {
     }
 
     if (!course_found) {
-        printf("¥¼§ä¨ì¸Ó½Òµ{«H®§¡A»İ­n¥ı²K¥[¸Ó½Òµ{\n");
+        printf("æœªæ‰¾åˆ°è©²èª²ç¨‹ä¿¡æ¯ï¼Œéœ€è¦å…ˆæ·»åŠ è©²èª²ç¨‹\n");
         return;
     }
     if (!teacher_found) {
-        printf("¥¼§ä¨ì¸Ó±Ğ®v«H®§¡A»İ­n¥ı²K¥[¸Ó±Ğ®v\n");
+        printf("æœªæ‰¾åˆ°è©²æ•™å¸«ä¿¡æ¯ï¼Œéœ€è¦å…ˆæ·»åŠ è©²æ•™å¸«\n");
         return;
     }
 
-    // ­×§ï±Â½Ò«H®§
+    // ä¿®æ”¹æˆèª²ä¿¡æ¯
     teachings[found_index].course = course;
     teachings[found_index].teacher = teacher;
 
-    printf("±Â½Ò«H®§­×§ï¦¨¥\¡I\n");
+    printf("æˆèª²ä¿¡æ¯ä¿®æ”¹æˆåŠŸï¼\n");
 }
 
-// §R°£±Â½Ò
+// åˆªé™¤æˆèª²
 void delete_teaching() {
-    printf("\n½Ğ¿é¤J­n§R°£ªº±Â½ÒID¡G");
+    printf("\nè«‹è¼¸å…¥è¦åˆªé™¤çš„æˆèª²IDï¼š");
     int teach_id;
     scanf("%d", &teach_id);
 
-    // ¬d§ä­n§R°£ªº±Â½Ò«H®§
+    // æŸ¥æ‰¾è¦åˆªé™¤çš„æˆèª²ä¿¡æ¯
     int found_index = -1;
     for (int i = 0; i < teaching_count; i++) {
         if (teachings[i].teach_id == teach_id) {
@@ -176,26 +176,26 @@ void delete_teaching() {
     }
 
     if (found_index == -1) {
-        printf("¥¼§ä¨ì¸Ó±Â½Ò«H®§¡I\n");
+        printf("æœªæ‰¾åˆ°è©²æˆèª²ä¿¡æ¯ï¼\n");
         return;
     }
 
-    // §PÂ_¸Ó½Òµ{¬O§_¥¿¦b³Q¿ï­×
+    // åˆ¤æ–·è©²èª²ç¨‹æ˜¯å¦æ­£åœ¨è¢«é¸ä¿®
     if (teachings[found_index].course.is_selected) {
-        printf("¸Ó½Òµ{¥¿¦b³Q¿ï­×¡AµLªk§R°£¡I\n");
+        printf("è©²èª²ç¨‹æ­£åœ¨è¢«é¸ä¿®ï¼Œç„¡æ³•åˆªé™¤ï¼\n");
         return;
     }
 
-    // ±N¸Ó±Â½Ò«H®§±q¦Cªí¤¤§R°£
+    // å°‡è©²æˆèª²ä¿¡æ¯å¾åˆ—è¡¨ä¸­åˆªé™¤
     for (int i = found_index; i < teaching_count - 1; i++) {
         teachings[i] = teachings[i + 1];
     }
     teaching_count--;
 
-    printf("±Â½Ò«H®§§R°£¦¨¥\¡I\n");
+    printf("æˆèª²ä¿¡æ¯åˆªé™¤æˆåŠŸï¼\n");
 }
 
-// ±Â½ÒºŞ²z
+// æˆèª²ç®¡ç†
 void teaching_management() {
     while (1) {
         teaching_management_menu();
@@ -221,7 +221,7 @@ void teaching_management() {
         case TEACHING_MANAGEMENT_RETURN:
             return;
         default:
-            printf("\nµL®Ä¿ï¶µ¡A½Ğ­«·s¿é¤J\n");
+            printf("\nç„¡æ•ˆé¸é …ï¼Œè«‹é‡æ–°è¼¸å…¥\n");
             system("pause");
             break;
         }

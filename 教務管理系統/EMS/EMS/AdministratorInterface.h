@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include <Windows.h>
 #include "UserManagement.h"
 #include "TeacherManagement.h"
@@ -7,7 +7,7 @@
 #include "TeachingManagement.h"
 #include "SelectionManagement.h"
 
-// µæ³æ¿ï¶µ
+// èœå–®é¸é …
 enum MenuOption {
 	MENU_USER_MANAGEMENT = 1,
 	MENU_TEACHER_MANAGEMENT,
@@ -18,21 +18,21 @@ enum MenuOption {
 	MENU_EXIT
 };
 
-// Åã¥Üµæ³æ
+// é¡¯ç¤ºèœå–®
 void show_menu() {
 	system("cls");
-	printf("==========ºŞ²z­û¬É­±==========\n");
-	printf("\t1. ¥Î¤áºŞ²z\n");
-	printf("\t2. ±Ğ®vºŞ²z\n");
-	printf("\t3. ¾Ç¥ÍºŞ²z\n");
-	printf("\t4. ½Òµ{ºŞ²z\n");
-	printf("\t5. ±Â½ÒºŞ²z\n");
-	printf("\t6. ¿ï½ÒºŞ²z\n");
-	printf("\t7. °h¥X\n");
-	printf("\t½Ğ¿ï¾Ü¾Ş§@¡G");
+	printf("==========ç®¡ç†å“¡ç•Œé¢==========\n");
+	printf("\t1. ç”¨æˆ¶ç®¡ç†\n");
+	printf("\t2. æ•™å¸«ç®¡ç†\n");
+	printf("\t3. å­¸ç”Ÿç®¡ç†\n");
+	printf("\t4. èª²ç¨‹ç®¡ç†\n");
+	printf("\t5. æˆèª²ç®¡ç†\n");
+	printf("\t6. é¸èª²ç®¡ç†\n");
+	printf("\t7. é€€å‡º\n");
+	printf("\tè«‹é¸æ“‡æ“ä½œï¼š");
 }
 
-// ºŞ²z­û¤¶­±
+// ç®¡ç†å“¡ä»‹é¢
 void administrator_interface() {
 	while (1) {
 		show_menu();
@@ -64,11 +64,11 @@ void administrator_interface() {
 			system("pause");
 			break;
 		case MENU_EXIT:
-			printf("\n¦A¨£¡I\n");
+			printf("\nå†è¦‹ï¼\n");
 			system("pause");
 			exit(0);
 		default:
-			printf("\nµL®Ä¿ï¶µ¡A½Ğ­«·s¿é¤J\n");
+			printf("\nç„¡æ•ˆé¸é …ï¼Œè«‹é‡æ–°è¼¸å…¥\n");
 			system("pause");
 			break;
 		}

@@ -1,34 +1,34 @@
-#pragma once
+ï»¿#pragma once
 #pragma warning(disable:4996)
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "DataFormat.h" // ½Õ¥Î±Ğ°ÈºŞ²z¨t²Î¼Æ¾Ú®æ¦¡ÀY¤å¥ó
-#include "DataStorage.h" // ½Õ¥Î¥Î¤á¼Æ¾ÚÀY¤å¥ó
+#include "DataFormat.h" // èª¿ç”¨æ•™å‹™ç®¡ç†ç³»çµ±æ•¸æ“šæ ¼å¼é ­æ–‡ä»¶
+#include "DataStorage.h" // èª¿ç”¨ç”¨æˆ¶æ•¸æ“šé ­æ–‡ä»¶
 
 void query_teacher_teaching_info() {
-    int user_index = -1; // ªì©l¤Æ§ä¨ìªº¥Î¤á¤U¼Ğ¬°-1
-    // ¦b¥Î¤á¼Æ²Õ¤¤¬d§ä·í«e¥Î¤áªº¤U¼Ğ
+    int user_index = -1; // åˆå§‹åŒ–æ‰¾åˆ°çš„ç”¨æˆ¶ä¸‹æ¨™ç‚º-1
+    // åœ¨ç”¨æˆ¶æ•¸çµ„ä¸­æŸ¥æ‰¾ç•¶å‰ç”¨æˆ¶çš„ä¸‹æ¨™
     for (int i = 0; i < user_count; i++) {
         if (strcmp(users[i].username, current_username) == 0) {
             user_index = i;
             break;
         }
     }
-    if (user_index != -1 && users[user_index].role == 2) { // ·í«e¥Î¤á¬°±Ğ®v
-        int teacher_index = -1; // ªì©l¤Æ§ä¨ìªº±Ğ®v¤U¼Ğ¬°-1
-        // ¦b±Ğ®v¼Æ²Õ¤¤¬d§ä·í«e±Ğ®vªº¤U¼Ğ
+    if (user_index != -1 && users[user_index].role == 2) { // ç•¶å‰ç”¨æˆ¶ç‚ºæ•™å¸«
+        int teacher_index = -1; // åˆå§‹åŒ–æ‰¾åˆ°çš„æ•™å¸«ä¸‹æ¨™ç‚º-1
+        // åœ¨æ•™å¸«æ•¸çµ„ä¸­æŸ¥æ‰¾ç•¶å‰æ•™å¸«çš„ä¸‹æ¨™
         for (int i = 0; i < teacher_count; i++) {
             if (strcmp(teachers[i].teacher_id, users[user_index].user_id) == 0) {
                 teacher_index = i;
                 break;
             }
         }
-        if (teacher_index != -1) { // §ä¨ì±Ğ®v
-            printf("\n%s±Â½Ò«H®§¡G\n", teachers[teacher_index].name);
+        if (teacher_index != -1) { // æ‰¾åˆ°æ•™å¸«
+            printf("\n%sæˆèª²ä¿¡æ¯ï¼š\n", teachers[teacher_index].name);
             printf("================================\n");
-            printf("±Â½ÒID\t½Òµ{½s¸¹\t½Òµ{¦WºÙ\t¥ô½Ò±Ğ®v\n");
-            // ¹M¾ú±Â½Ò«H®§¼Æ²Õ¡A¥´¦L¸Ó±Ğ®vªº©Ò¦³±Â½Ò«H®§
+            printf("æˆèª²ID\tèª²ç¨‹ç·¨è™Ÿ\tèª²ç¨‹åç¨±\tä»»èª²æ•™å¸«\n");
+            // éæ­·æˆèª²ä¿¡æ¯æ•¸çµ„ï¼Œæ‰“å°è©²æ•™å¸«çš„æ‰€æœ‰æˆèª²ä¿¡æ¯
             for (int i = 0; i < teaching_count; i++) {
                 if (strcmp(teachings[i].teacher.teacher_id, teachers[teacher_index].teacher_id) == 0) {
                     printf("%d\t%s\t%s\t%s\n", teachings[i].teach_id, teachings[i].course.course_id, teachings[i].course.name, teachings[i].teacher.name);
@@ -36,10 +36,10 @@ void query_teacher_teaching_info() {
             }
         }
         else {
-            printf("¥Î¤á¤£¦s¦b©Î¤£¬O±Ğ®v\n");
+            printf("ç”¨æˆ¶ä¸å­˜åœ¨æˆ–ä¸æ˜¯æ•™å¸«\n");
         }
     }
     else {
-        printf("\n¥Î¤á¤£¦s¦b©Î¤£¬O±Ğ®v\n");
+        printf("\nç”¨æˆ¶ä¸å­˜åœ¨æˆ–ä¸æ˜¯æ•™å¸«\n");
     }
 }

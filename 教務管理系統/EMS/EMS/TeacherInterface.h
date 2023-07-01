@@ -1,11 +1,11 @@
-#pragma once
+ï»¿#pragma once
 #include "ModifyPassword.h"
 #include "QueryUserInfo.h"
 #include "QueryTeacherTeachingInfo.h"
 #include "QueryTeacherStudentsInfo.h"
 #include "TeacherManageSelections.h"
 
-// ±Ğ®v¬É­±µæ³æ¿ï¶µ
+// æ•™å¸«ç•Œé¢èœå–®é¸é …
 enum TeacherMenuOption {
     TEACHER_MODIFY_PASSWORD = 1,
     TEACHER_QUERY_TEACHER_INFO,
@@ -17,14 +17,14 @@ enum TeacherMenuOption {
 
 void teacher_menu() {
     system("cls");
-    printf("============±Ğ®v¬É­±============\n");
-    printf("\t1. ­×§ï¥Î¤á±K½X\n");
-    printf("\t2. ±Ğ®v«H®§¬d¸ß\n");
-    printf("\t3. ½Òµ{«H®§¬d¸ß\n");
-    printf("\t4. ¾Ç¥Í«H®§¬d¸ß\n");
-    printf("\t5. ¿ï½ÒºŞ²z\n");
-    printf("\t6. °h¥X\n");
-    printf("\t½Ğ¿ï¾Ü¾Ş§@¡G");
+    printf("============æ•™å¸«ç•Œé¢============\n");
+    printf("\t1. ä¿®æ”¹ç”¨æˆ¶å¯†ç¢¼\n");
+    printf("\t2. æ•™å¸«ä¿¡æ¯æŸ¥è©¢\n");
+    printf("\t3. èª²ç¨‹ä¿¡æ¯æŸ¥è©¢\n");
+    printf("\t4. å­¸ç”Ÿä¿¡æ¯æŸ¥è©¢\n");
+    printf("\t5. é¸èª²ç®¡ç†\n");
+    printf("\t6. é€€å‡º\n");
+    printf("\tè«‹é¸æ“‡æ“ä½œï¼š");
 }
 
 void teacher_interface() {
@@ -54,11 +54,11 @@ void teacher_interface() {
             system("pause");
             break;
         case TEACHER_EXIT:
-            printf("\n¦A¨£¡I\n");
+            printf("\nå†è¦‹ï¼\n");
             system("pause");
             exit(0);
         default:
-            printf("\nµL®Ä¿ï¶µ¡A½Ğ­«·s¿é¤J\n");
+            printf("\nç„¡æ•ˆé¸é …ï¼Œè«‹é‡æ–°è¼¸å…¥\n");
             system("pause");
             break;
         }

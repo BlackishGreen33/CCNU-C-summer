@@ -1,23 +1,23 @@
-#pragma once
+ï»¿#pragma once
 #pragma warning(disable:4996)
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "DataFormat.h" // ½Õ¥Î±Ğ°ÈºŞ²z¨t²Î¼Æ¾Ú®æ¦¡ÀY¤å¥ó
-#include "DataStorage.h" // ½Õ¥Î¥Î¤á¼Æ¾ÚÀY¤å¥ó
+#include "DataFormat.h" // èª¿ç”¨æ•™å‹™ç®¡ç†ç³»çµ±æ•¸æ“šæ ¼å¼é ­æ–‡ä»¶
+#include "DataStorage.h" // èª¿ç”¨ç”¨æˆ¶æ•¸æ“šé ­æ–‡ä»¶
 
 void student_query_selection() {
-    // ¹M¾ú©Ò¦³¿ï½Ò«H®§¡A§ä¨ìis_selected¬°0ªº¿ï½Ò«H®§
+    // éæ­·æ‰€æœ‰é¸èª²ä¿¡æ¯ï¼Œæ‰¾åˆ°is_selectedç‚º0çš„é¸èª²ä¿¡æ¯
     for (int i = 0; i < selection_count; i++) {
         if (selections[i].course.is_selected == 0) {
-            // ¿é¥X¸Ó¿ï½Ò«H®§¹ïÀ³ªº¿ï½ÒID©M½Òµ{«H®§
-            printf("\n¿ï½ÒID¡G%d\n", selections[i].select_id);
-            printf("½Òµ{½s¸¹¡G%s\n", selections[i].course.course_id);
-            printf("½Òµ{¦WºÙ¡G%s\n", selections[i].course.name);
-            printf("½Òµ{©Ê½è¡G%s\n", selections[i].course.nature);
-            printf("½Òµ{¾Ç®É¡G%d\n", selections[i].course.hours);
-            printf("½Òµ{¾Ç¤À¡G%f\n", selections[i].course.credit);
-            printf("¶}½Ò¾Ç´Á¡G%s\n", selections[i].course.term);
+            // è¼¸å‡ºè©²é¸èª²ä¿¡æ¯å°æ‡‰çš„é¸èª²IDå’Œèª²ç¨‹ä¿¡æ¯
+            printf("\né¸èª²IDï¼š%d\n", selections[i].select_id);
+            printf("èª²ç¨‹ç·¨è™Ÿï¼š%s\n", selections[i].course.course_id);
+            printf("èª²ç¨‹åç¨±ï¼š%s\n", selections[i].course.name);
+            printf("èª²ç¨‹æ€§è³ªï¼š%s\n", selections[i].course.nature);
+            printf("èª²ç¨‹å­¸æ™‚ï¼š%d\n", selections[i].course.hours);
+            printf("èª²ç¨‹å­¸åˆ†ï¼š%f\n", selections[i].course.credit);
+            printf("é–‹èª²å­¸æœŸï¼š%s\n", selections[i].course.term);
             printf("\n");
         }
     }

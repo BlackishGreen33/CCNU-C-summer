@@ -1,29 +1,29 @@
-#pragma once
+ï»¿#pragma once
 #pragma warning(disable:4996)
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "DataFormat.h" // ½Õ¥Î±Ğ°ÈºŞ²z¨t²Î¼Æ¾Ú®æ¦¡ÀY¤å¥ó
-#include "DataStorage.h" // ½Õ¥Î¥Î¤á¼Æ¾ÚÀY¤å¥ó
+#include "DataFormat.h" // èª¿ç”¨æ•™å‹™ç®¡ç†ç³»çµ±æ•¸æ“šæ ¼å¼é ­æ–‡ä»¶
+#include "DataStorage.h" // èª¿ç”¨ç”¨æˆ¶æ•¸æ“šé ­æ–‡ä»¶
 
 void query_teacher_students_info() {
-    int user_index = -1; // ªì©l¤Æ§ä¨ìªº¥Î¤á¤U¼Ğ¬°-1
-    // ¦b¥Î¤á¼Æ²Õ¤¤¬d§ä·í«e¥Î¤áªº¤U¼Ğ
+    int user_index = -1; // åˆå§‹åŒ–æ‰¾åˆ°çš„ç”¨æˆ¶ä¸‹æ¨™ç‚º-1
+    // åœ¨ç”¨æˆ¶æ•¸çµ„ä¸­æŸ¥æ‰¾ç•¶å‰ç”¨æˆ¶çš„ä¸‹æ¨™
     for (int i = 0; i < user_count; i++) {
         if (strcmp(users[i].username, current_username) == 0) {
             user_index = i;
             break;
         }
     }
-    if (user_index != -1 && users[user_index].role == 2) { // ·í«e¥Î¤á¬°±Ğ®v
-        char student_id[20]; // ¾Ç¥Í½s¸¹
-        printf("\n½Ğ¿é¤J¾Ç¥Í½s¸¹¡G");
+    if (user_index != -1 && users[user_index].role == 2) { // ç•¶å‰ç”¨æˆ¶ç‚ºæ•™å¸«
+        char student_id[20]; // å­¸ç”Ÿç·¨è™Ÿ
+        printf("\nè«‹è¼¸å…¥å­¸ç”Ÿç·¨è™Ÿï¼š");
         scanf("%s", student_id);
-        int teaching_index = -1; // ªì©l¤Æ§ä¨ìªº±Â½Ò¤U¼Ğ¬°-1
-        // ¦b±Â½Ò«H®§¼Æ²Õ¤¤¬d§ä¸Ó±Ğ®v¹ïÀ³ªº±Â½Ò«H®§ªº¤U¼Ğ
+        int teaching_index = -1; // åˆå§‹åŒ–æ‰¾åˆ°çš„æˆèª²ä¸‹æ¨™ç‚º-1
+        // åœ¨æˆèª²ä¿¡æ¯æ•¸çµ„ä¸­æŸ¥æ‰¾è©²æ•™å¸«å°æ‡‰çš„æˆèª²ä¿¡æ¯çš„ä¸‹æ¨™
         for (int i = 0; i < teaching_count; i++) {
             if (strcmp(teachings[i].teacher.teacher_id, users[user_index].user_id) == 0) {
-                // ¦b¸Ó±Â½Ò«H®§¤¤¬d§ä¸Ó¾Ç¥Í¬O§_¿ï½Ò
+                // åœ¨è©²æˆèª²ä¿¡æ¯ä¸­æŸ¥æ‰¾è©²å­¸ç”Ÿæ˜¯å¦é¸èª²
                 for (int j = 0; j < selection_count; j++) {
                     if (strcmp(selections[j].course.course_id, teachings[i].course.course_id) == 0 && strcmp(selections[j].student.student_id, student_id) == 0) {
                         teaching_index = i;
@@ -35,22 +35,22 @@ void query_teacher_students_info() {
                 break;
             }
         }
-        if (teaching_index != -1) { // §ä¨ì±Â½Ò«H®§
-            printf("¾Ç¥Í%s¿ï¾Üªº½Òµ{¡G\n", student_id);
+        if (teaching_index != -1) { // æ‰¾åˆ°æˆèª²ä¿¡æ¯
+            printf("å­¸ç”Ÿ%sé¸æ“‡çš„èª²ç¨‹ï¼š\n", student_id);
             printf("================================\n");
-            printf("½Òµ{½s¸¹\t½Òµ{¦WºÙ\t½Òµ{©Ê½è\t¾Ç®É\t¾Ç¤À\t¶}½Ò¾Ç´Á\t¬O§_¥¿¦bÁ¿±Â\t¬O§_³Q¿ï­×\n");
-            // ¹M¾ú¿ï½Ò«H®§¼Æ²Õ¡A¥´¦L¸Ó¾Ç¥Í¤w¿ïªº¸Ó±Ğ®vªº©Ò¦³½Òµ{«H®§
+            printf("èª²ç¨‹ç·¨è™Ÿ\tèª²ç¨‹åç¨±\tèª²ç¨‹æ€§è³ª\tå­¸æ™‚\tå­¸åˆ†\té–‹èª²å­¸æœŸ\tæ˜¯å¦æ­£åœ¨è¬›æˆ\tæ˜¯å¦è¢«é¸ä¿®\n");
+            // éæ­·é¸èª²ä¿¡æ¯æ•¸çµ„ï¼Œæ‰“å°è©²å­¸ç”Ÿå·²é¸çš„è©²æ•™å¸«çš„æ‰€æœ‰èª²ç¨‹ä¿¡æ¯
             for (int i = 0; i < selection_count; i++) {
                 if (strcmp(selections[i].student.student_id, student_id) == 0 && strcmp(selections[i].course.course_id, teachings[teaching_index].course.course_id) == 0) {
-                    printf("%s\t%s\t%s\t%d\t%.1f\t%s\t%s\t%s\n", selections[i].course.course_id, selections[i].course.name, selections[i].course.nature, selections[i].course.hours, selections[i].course.credit, selections[i].course.term, selections[i].course.is_teaching == 1 ? "¬O" : "§_", selections[i].course.is_selected == 1 ? "¬O" : "§_");
+                    printf("%s\t%s\t%s\t%d\t%.1f\t%s\t%s\t%s\n", selections[i].course.course_id, selections[i].course.name, selections[i].course.nature, selections[i].course.hours, selections[i].course.credit, selections[i].course.term, selections[i].course.is_teaching == 1 ? "æ˜¯" : "å¦", selections[i].course.is_selected == 1 ? "æ˜¯" : "å¦");
                 }
             }
         }
         else {
-            printf("\n¸Ó¾Ç¥Í¥¼¿ï­×±zªº½Òµ{\n");
+            printf("\nè©²å­¸ç”Ÿæœªé¸ä¿®æ‚¨çš„èª²ç¨‹\n");
         }
     }
     else {
-        printf("¥Î¤á¤£¦s¦b©Î¤£¬O±Ğ®v\n");
+        printf("ç”¨æˆ¶ä¸å­˜åœ¨æˆ–ä¸æ˜¯æ•™å¸«\n");
     }
 }

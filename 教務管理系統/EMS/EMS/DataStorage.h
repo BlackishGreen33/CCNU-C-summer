@@ -1,9 +1,9 @@
-#pragma once
+ï»¿#pragma once
 #include "DataFormat.h"
 
 char current_username[20], current_password[20];
 
-// ¥Î¤á¼Æ¾Ú
+// ç”¨æˆ¶æ•¸æ“š
 User users[] = {
     {"jw0001", "jw0001", "admin001", 1},
     {"T001", "teacher001", "123456", 2},
@@ -15,31 +15,31 @@ User users[] = {
 };
 int user_count = sizeof(users) / sizeof(users[0]);
 
-// ±Ğ®v«H®§
+// æ•™å¸«ä¿¡æ¯
 Teacher teachers[] = {
-    {"T001", "±i¤T", "¨k", "ºÓ¤h", "Á¿®v"},
-    {"T002", "§õ¥|", "¤k", "³Õ¤h", "°Æ±Ğ±Â"},
-    {"T003", "¤ı¤­", "¨k", "¾Ç¤h", "§U²z±Ğ±Â"}
+    {"T001", "å¼µä¸‰", "ç”·", "ç¢©å£«", "è¬›å¸«"},
+    {"T002", "æå››", "å¥³", "åšå£«", "å‰¯æ•™æˆ"},
+    {"T003", "ç‹äº”", "ç”·", "å­¸å£«", "åŠ©ç†æ•™æˆ"}
 };
 int teacher_count = sizeof(teachers) / sizeof(teachers[0]);
 
-// ¾Ç¥Í«H®§
+// å­¸ç”Ÿä¿¡æ¯
 Student students[] = {
-    {"S001", "¤p©ú", "¨k", "1¯Z"},
-    {"S002", "¤p¬õ", "¤k", "2¯Z"},
-    {"S003", "¤p­è", "¨k", "1¯Z"}
+    {"S001", "å°æ˜", "ç”·", "1ç­"},
+    {"S002", "å°ç´…", "å¥³", "2ç­"},
+    {"S003", "å°å‰›", "ç”·", "1ç­"}
 };
 int student_count = sizeof(students) / sizeof(students[0]);
 
-// ½Òµ{«H®§
+// èª²ç¨‹ä¿¡æ¯
 Course courses[] = {
-    {"C001", "°ªµ¥¼Æ¾Ç", "¥²­×", 64, 4, "2022-2023¬î©u¾Ç´Á", 0, 0},
-    {"C002", "­^»y", "¥²­×", 96, 6, "2022-2023¬î©u¾Ç´Á", 0, 0},
-    {"C003", "¼Æ¾Úµ²ºc", "¿ï­×", 48, 3, "2022-2023¬K©u¾Ç´Á", 0, 0}
+    {"C001", "é«˜ç­‰æ•¸å­¸", "å¿…ä¿®", 64, 4, "2022-2023ç§‹å­£å­¸æœŸ", 0, 0},
+    {"C002", "è‹±èª", "å¿…ä¿®", 96, 6, "2022-2023ç§‹å­£å­¸æœŸ", 0, 0},
+    {"C003", "æ•¸æ“šçµæ§‹", "é¸ä¿®", 48, 3, "2022-2023æ˜¥å­£å­¸æœŸ", 0, 0}
 };
 int course_count = sizeof(courses) / sizeof(courses[0]);
 
-// ±Â½Ò«H®§
+// æˆèª²ä¿¡æ¯
 Teaching teachings[] = {
     {1, courses[0], teachers[0]},
     {2, courses[1], teachers[1]},
@@ -47,7 +47,7 @@ Teaching teachings[] = {
 };
 int teaching_count = sizeof(teachings) / sizeof(teachings[0]);
 
-// ¿ï½Ò«H®§
+// é¸èª²ä¿¡æ¯
 Selection selections[] = {
     {1, courses[0], students[0], 85},
     {2, courses[1], students[1], 92},

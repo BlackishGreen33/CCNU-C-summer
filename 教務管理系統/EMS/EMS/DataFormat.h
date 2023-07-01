@@ -1,76 +1,76 @@
-#pragma once
-// ¥Î¤á«H®§µ²ºcÅé
+ï»¿#pragma once
+// ç”¨æˆ¶ä¿¡æ¯çµæ§‹é«”
 typedef struct {
-    char user_id[20]; // ¥Î¤áID
-    char username[20]; // ¥Î¤á¦W
-    char password[20]; // ±K½X
-    int role; // ¥Î¤áÅv­­¡A1¬°ºŞ²z­û¡A2¬°±Ğ®v¡A3¬°¾Ç¥Í
+    char user_id[20]; // ç”¨æˆ¶ID
+    char username[20]; // ç”¨æˆ¶å
+    char password[20]; // å¯†ç¢¼
+    int role; // ç”¨æˆ¶æ¬Šé™ï¼Œ1ç‚ºç®¡ç†å“¡ï¼Œ2ç‚ºæ•™å¸«ï¼Œ3ç‚ºå­¸ç”Ÿ
 } User;
 
-// ±Ğ®v«H®§µ²ºcÅé
+// æ•™å¸«ä¿¡æ¯çµæ§‹é«”
 typedef struct {
-    char teacher_id[20]; // ±Ğ®v½s¸¹
-    char name[20]; // ±Ğ®v©m¦W
-    char gender[10]; // ±Ğ®v©Ê§O
-    char education[20]; // ±Ğ®v¾Ç¾ú
-    char title[20]; // ±Ğ®vÂ¾ºÙ
+    char teacher_id[20]; // æ•™å¸«ç·¨è™Ÿ
+    char name[20]; // æ•™å¸«å§“å
+    char gender[10]; // æ•™å¸«æ€§åˆ¥
+    char education[20]; // æ•™å¸«å­¸æ­·
+    char title[20]; // æ•™å¸«è·ç¨±
 } Teacher;
 
-// ¾Ç¥Í«H®§µ²ºcÅé
+// å­¸ç”Ÿä¿¡æ¯çµæ§‹é«”
 typedef struct {
-    char student_id[20]; // ¾Ç¥Í½s¸¹
-    char name[20]; // ¾Ç¥Í©m¦W
-    char gender[10]; // ¾Ç¥Í©Ê§O
-    char classroom[20]; // ¾Ç¥Í¯Z¯Å
+    char student_id[20]; // å­¸ç”Ÿç·¨è™Ÿ
+    char name[20]; // å­¸ç”Ÿå§“å
+    char gender[10]; // å­¸ç”Ÿæ€§åˆ¥
+    char classroom[20]; // å­¸ç”Ÿç­ç´š
 } Student;
 
-// ½Òµ{«H®§µ²ºcÅé
+// èª²ç¨‹ä¿¡æ¯çµæ§‹é«”
 typedef struct {
-    char course_id[20]; // ½Òµ{½s¸¹
-    char name[20]; // ½Òµ{¦WºÙ
-    char nature[20]; // ½Òµ{©Ê½è
-    int hours; // ½Òµ{¾Ç®É
-    float credit; // ½Òµ{¾Ç¤À
-    char term[30]; // ¶}½Ò¾Ç´Á
-    int is_teaching; // ¬O§_¥¿¦bÁ¿±Â
-    int is_selected; // ¬O§_³Q¾Ç¥Í¿ï­×
+    char course_id[20]; // èª²ç¨‹ç·¨è™Ÿ
+    char name[20]; // èª²ç¨‹åç¨±
+    char nature[20]; // èª²ç¨‹æ€§è³ª
+    int hours; // èª²ç¨‹å­¸æ™‚
+    float credit; // èª²ç¨‹å­¸åˆ†
+    char term[30]; // é–‹èª²å­¸æœŸ
+    int is_teaching; // æ˜¯å¦æ­£åœ¨è¬›æˆ
+    int is_selected; // æ˜¯å¦è¢«å­¸ç”Ÿé¸ä¿®
 } Course;
 
-// ±Â½Ò«H®§µ²ºcÅé
+// æˆèª²ä¿¡æ¯çµæ§‹é«”
 typedef struct {
-    int teach_id; // ±Â½ÒID
-    Course course; // ½Òµ{«H®§
-    Teacher teacher; // ±Â½Ò±Ğ®v«H®§
+    int teach_id; // æˆèª²ID
+    Course course; // èª²ç¨‹ä¿¡æ¯
+    Teacher teacher; // æˆèª²æ•™å¸«ä¿¡æ¯
 } Teaching;
 
-// ¿ï½Ò«H®§µ²ºcÅé
+// é¸èª²ä¿¡æ¯çµæ§‹é«”
 typedef struct {
-    int select_id; // ¿ï½ÒID
-    Course course; // ½Òµ{«H®§
-    Student student; // ¾Ç¥Í«H®§
-    float score; // ¾Ç¥Í¦¨ÁZ
+    int select_id; // é¸èª²ID
+    Course course; // èª²ç¨‹ä¿¡æ¯
+    Student student; // å­¸ç”Ÿä¿¡æ¯
+    float score; // å­¸ç”Ÿæˆç¸¾
 } Selection;
 
-// ¥Î¤á¼Æ¾Ú
+// ç”¨æˆ¶æ•¸æ“š
 extern User users[];
 extern int user_count;
 
-// ±Ğ®v¼Æ¾Ú
+// æ•™å¸«æ•¸æ“š
 extern Teacher teachers[];
 extern int teacher_count;
 
-// ¾Ç¥Í¼Æ¾Ú
+// å­¸ç”Ÿæ•¸æ“š
 extern Student students[];
 extern int student_count;
 
-// ½Òµ{¼Æ¾Ú
+// èª²ç¨‹æ•¸æ“š
 extern Course courses[];
 extern int course_count;
 
-// ±Â½Ò¼Æ¾Ú
+// æˆèª²æ•¸æ“š
 extern Teaching teachings[];
 extern int teaching_count;
 
-// ¿ï½Ò¼Æ¾Ú
+// é¸èª²æ•¸æ“š
 extern Selection selections[];
 extern int selection_count;

@@ -1,54 +1,54 @@
-#pragma once
+ï»¿#pragma once
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "DataFormat.h" // ½Õ¥Î±Ğ°ÈºŞ²z¨t²Î¼Æ¾Ú®æ¦¡ÀY¤å¥ó
-#include "DataStorage.h" // ½Õ¥Î¥Î¤á¼Æ¾ÚÀY¤å¥ó
+#include "DataFormat.h" // èª¿ç”¨æ•™å‹™ç®¡ç†ç³»çµ±æ•¸æ“šæ ¼å¼é ­æ–‡ä»¶
+#include "DataStorage.h" // èª¿ç”¨ç”¨æˆ¶æ•¸æ“šé ­æ–‡ä»¶
 
 void query_student_selection_info() {
-    int user_index = -1; // ªì©l¤Æ§ä¨ìªº¥Î¤á¤U¼Ğ¬°-1
-    // ¦b¥Î¤á¼Æ²Õ¤¤¬d§ä·í«e¥Î¤áªº¤U¼Ğ
+    int user_index = -1; // åˆå§‹åŒ–æ‰¾åˆ°çš„ç”¨æˆ¶ä¸‹æ¨™ç‚º-1
+    // åœ¨ç”¨æˆ¶æ•¸çµ„ä¸­æŸ¥æ‰¾ç•¶å‰ç”¨æˆ¶çš„ä¸‹æ¨™
     for (int i = 0; i < user_count; i++) {
         if (strcmp(users[i].username, current_username) == 0) {
             user_index = i;
             break;
         }
     }
-    if (user_index != -1 && users[user_index].role == 3) { // ·í«e¥Î¤á¬°¾Ç¥Í
-        int student_index = -1; // ªì©l¤Æ§ä¨ìªº¾Ç¥Í¤U¼Ğ¬°-1
-        // ¦b¾Ç¥Í¼Æ²Õ¤¤¬d§ä·í«e¾Ç¥Íªº¤U¼Ğ
+    if (user_index != -1 && users[user_index].role == 3) { // ç•¶å‰ç”¨æˆ¶ç‚ºå­¸ç”Ÿ
+        int student_index = -1; // åˆå§‹åŒ–æ‰¾åˆ°çš„å­¸ç”Ÿä¸‹æ¨™ç‚º-1
+        // åœ¨å­¸ç”Ÿæ•¸çµ„ä¸­æŸ¥æ‰¾ç•¶å‰å­¸ç”Ÿçš„ä¸‹æ¨™
         for (int i = 0; i < student_count; i++) {
             if (strcmp(students[i].student_id, users[user_index].user_id) == 0) {
                 student_index = i;
                 break;
             }
         }
-        if (student_index != -1) { // §ä¨ì¾Ç¥Í
-            printf("\n%s½Òµ{«H®§¡G\n", students[student_index].name);
-            // ¹M¾ú±Â½Ò«H®§¼Æ²Õ¡A¥´¦L¸Ó±Ğ®vªº©Ò¦³±Â½Ò«H®§
+        if (student_index != -1) { // æ‰¾åˆ°å­¸ç”Ÿ
+            printf("\n%sèª²ç¨‹ä¿¡æ¯ï¼š\n", students[student_index].name);
+            // éæ­·æˆèª²ä¿¡æ¯æ•¸çµ„ï¼Œæ‰“å°è©²æ•™å¸«çš„æ‰€æœ‰æˆèª²ä¿¡æ¯
             for (int i = 0; i < selection_count; i++) {
                 if (strcmp(selections[i].student.student_id, students[student_index].student_id) == 0) {
-                    printf("¿ï½ÒID¡G%d\n", selections[i].select_id);
-                    printf("½Òµ{½s¸¹¡G%s\n", selections[i].course.course_id);
-                    printf("½Òµ{¦WºÙ¡G%s\n", selections[i].course.name);
-                    printf("½Òµ{©Ê½è¡G%s\n", selections[i].course.nature);
-                    printf("½Òµ{¾Ç®É¡G%d\n", selections[i].course.hours);
-                    printf("½Òµ{¾Ç¤À¡G%f\n", selections[i].course.credit);
-                    printf("¶}½Ò¾Ç´Á¡G%s\n", selections[i].course.term);
-                    printf("¾Ç¥Í½s¸¹¡G%s\n", selections[i].student.student_id);
-                    printf("¾Ç¥Í©m¦W¡G%s\n", selections[i].student.name);
-                    printf("¾Ç¥Í©Ê§O¡G%s\n", selections[i].student.gender);
-                    printf("¾Ç¥Í¯Z¯Å¡G%s\n", selections[i].student.classroom);
-                    printf("¦¨ÁZ¡G%f\n", selections[i].score);
+                    printf("é¸èª²IDï¼š%d\n", selections[i].select_id);
+                    printf("èª²ç¨‹ç·¨è™Ÿï¼š%s\n", selections[i].course.course_id);
+                    printf("èª²ç¨‹åç¨±ï¼š%s\n", selections[i].course.name);
+                    printf("èª²ç¨‹æ€§è³ªï¼š%s\n", selections[i].course.nature);
+                    printf("èª²ç¨‹å­¸æ™‚ï¼š%d\n", selections[i].course.hours);
+                    printf("èª²ç¨‹å­¸åˆ†ï¼š%f\n", selections[i].course.credit);
+                    printf("é–‹èª²å­¸æœŸï¼š%s\n", selections[i].course.term);
+                    printf("å­¸ç”Ÿç·¨è™Ÿï¼š%s\n", selections[i].student.student_id);
+                    printf("å­¸ç”Ÿå§“åï¼š%s\n", selections[i].student.name);
+                    printf("å­¸ç”Ÿæ€§åˆ¥ï¼š%s\n", selections[i].student.gender);
+                    printf("å­¸ç”Ÿç­ç´šï¼š%s\n", selections[i].student.classroom);
+                    printf("æˆç¸¾ï¼š%f\n", selections[i].score);
                     printf("\n");
                 }
             }
         }
         else {
-            printf("\n¥Î¤á¤£¦s¦b©Î¤£¬O¾Ç¥Í\n");
+            printf("\nç”¨æˆ¶ä¸å­˜åœ¨æˆ–ä¸æ˜¯å­¸ç”Ÿ\n");
         }
     }
     else {
-        printf("\n¥Î¤á¤£¦s¦b©Î¤£¬O¾Ç¥Í\n");
+        printf("\nç”¨æˆ¶ä¸å­˜åœ¨æˆ–ä¸æ˜¯å­¸ç”Ÿ\n");
     }
 }

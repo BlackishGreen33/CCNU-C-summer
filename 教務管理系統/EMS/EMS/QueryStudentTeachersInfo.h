@@ -1,29 +1,29 @@
-#pragma once
+ï»¿#pragma once
 #pragma warning(disable:4996)
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "DataFormat.h" // ½Õ¥Î±Ğ°ÈºŞ²z¨t²Î¼Æ¾Ú®æ¦¡ÀY¤å¥ó
-#include "DataStorage.h" // ½Õ¥Î¥Î¤á¼Æ¾ÚÀY¤å¥ó
+#include "DataFormat.h" // èª¿ç”¨æ•™å‹™ç®¡ç†ç³»çµ±æ•¸æ“šæ ¼å¼é ­æ–‡ä»¶
+#include "DataStorage.h" // èª¿ç”¨ç”¨æˆ¶æ•¸æ“šé ­æ–‡ä»¶
 
 void query_student_teachers_info() {
-    int user_index = -1; // ªì©l¤Æ§ä¨ìªº¥Î¤á¤U¼Ğ¬°-1
-    // ¦b¥Î¤á¼Æ²Õ¤¤¬d§ä·í«e¥Î¤áªº¤U¼Ğ
+    int user_index = -1; // åˆå§‹åŒ–æ‰¾åˆ°çš„ç”¨æˆ¶ä¸‹æ¨™ç‚º-1
+    // åœ¨ç”¨æˆ¶æ•¸çµ„ä¸­æŸ¥æ‰¾ç•¶å‰ç”¨æˆ¶çš„ä¸‹æ¨™
     for (int i = 0; i < user_count; i++) {
         if (strcmp(users[i].username, current_username) == 0) {
             user_index = i;
             break;
         }
     }
-    if (user_index != -1 && users[user_index].role == 3) { // ·í«e¥Î¤á¬°¾Ç¥Í
-        char teacher_id[20]; // ±Ğ®v½s¸¹
-        printf("\n½Ğ¿é¤J±Ğ®v½s¸¹¡G");
+    if (user_index != -1 && users[user_index].role == 3) { // ç•¶å‰ç”¨æˆ¶ç‚ºå­¸ç”Ÿ
+        char teacher_id[20]; // æ•™å¸«ç·¨è™Ÿ
+        printf("\nè«‹è¼¸å…¥æ•™å¸«ç·¨è™Ÿï¼š");
         scanf("%s", teacher_id);
-        int selection_index = -1; // ªì©l¤Æ§ä¨ìªº¿ï½Ò¤U¼Ğ¬°-1
-        // ¦b¿ï½Ò«H®§¼Æ²Õ¤¤¬d§ä¸Ó¾Ç¥Í¹ïÀ³ªº¿ï½Ò«H®§ªº¤U¼Ğ
+        int selection_index = -1; // åˆå§‹åŒ–æ‰¾åˆ°çš„é¸èª²ä¸‹æ¨™ç‚º-1
+        // åœ¨é¸èª²ä¿¡æ¯æ•¸çµ„ä¸­æŸ¥æ‰¾è©²å­¸ç”Ÿå°æ‡‰çš„é¸èª²ä¿¡æ¯çš„ä¸‹æ¨™
         for (int i = 0; i < selection_count; i++) {
             if (strcmp(selections[i].student.student_id, users[user_index].user_id) == 0) {
-                // ¦b¸Ó¿ï½Ò«H®§¤¤¬d§ä¸Ó±Ğ®v¬O§_±Â½Ò
+                // åœ¨è©²é¸èª²ä¿¡æ¯ä¸­æŸ¥æ‰¾è©²æ•™å¸«æ˜¯å¦æˆèª²
                 for (int j = 0; j < teaching_count; j++) {
                     if (strcmp(teachings[j].course.course_id, selections[i].course.course_id) == 0 && strcmp(teachings[j].teacher.teacher_id, teacher_id) == 0) {
                         selection_index = i;
@@ -35,31 +35,31 @@ void query_student_teachers_info() {
                 break;
             }
         }
-        if (selection_index != -1) { // §ä¨ì¿ï½Ò«H®§
-            // ¹M¾ú¿ï½Ò«H®§¼Æ²Õ¡A¥´¦L¸Ó±Ğ®v¤w±Âªº¸Ó¾Ç¥Íªº©Ò¦³½Òµ{«H®§
+        if (selection_index != -1) { // æ‰¾åˆ°é¸èª²ä¿¡æ¯
+            // éæ­·é¸èª²ä¿¡æ¯æ•¸çµ„ï¼Œæ‰“å°è©²æ•™å¸«å·²æˆçš„è©²å­¸ç”Ÿçš„æ‰€æœ‰èª²ç¨‹ä¿¡æ¯
             for (int i = 0; i < teaching_count; i++) {
                 if (strcmp(teachings[i].teacher.teacher_id, teacher_id) == 0 && strcmp(teachings[i].course.course_id, selections[selection_index].course.course_id) == 0) {
-                    // ¿é¥X¸Ó±Â½Ò«H®§¹ïÀ³ªº½Òµ{«H®§
-                    printf("½Òµ{½s¸¹¡G%s\n", teachings[i].course.course_id);
-                    printf("½Òµ{¦WºÙ¡G%s\n", teachings[i].course.name);
-                    printf("½Òµ{©Ê½è¡G%s\n", teachings[i].course.nature);
-                    printf("½Òµ{¾Ç®É¡G%d\n", teachings[i].course.hours);
-                    printf("½Òµ{¾Ç¤À¡G%f\n", teachings[i].course.credit);
-                    printf("¶}½Ò¾Ç´Á¡G%s\n", teachings[i].course.term);
-                    printf("±Ğ®v½s¸¹¡G%s\n", teachings[i].teacher.teacher_id);
-                    printf("±Ğ®v©m¦W¡G%s\n", teachings[i].teacher.name);
-                    printf("±Ğ®v©Ê§O¡G%s\n", teachings[i].teacher.gender);
-                    printf("±Ğ®v¾Ç¾ú¡G%s\n", teachings[i].teacher.education);
-                    printf("±Ğ®vÂ¾ºÙ¡G%s\n", teachings[i].teacher.title);
+                    // è¼¸å‡ºè©²æˆèª²ä¿¡æ¯å°æ‡‰çš„èª²ç¨‹ä¿¡æ¯
+                    printf("èª²ç¨‹ç·¨è™Ÿï¼š%s\n", teachings[i].course.course_id);
+                    printf("èª²ç¨‹åç¨±ï¼š%s\n", teachings[i].course.name);
+                    printf("èª²ç¨‹æ€§è³ªï¼š%s\n", teachings[i].course.nature);
+                    printf("èª²ç¨‹å­¸æ™‚ï¼š%d\n", teachings[i].course.hours);
+                    printf("èª²ç¨‹å­¸åˆ†ï¼š%f\n", teachings[i].course.credit);
+                    printf("é–‹èª²å­¸æœŸï¼š%s\n", teachings[i].course.term);
+                    printf("æ•™å¸«ç·¨è™Ÿï¼š%s\n", teachings[i].teacher.teacher_id);
+                    printf("æ•™å¸«å§“åï¼š%s\n", teachings[i].teacher.name);
+                    printf("æ•™å¸«æ€§åˆ¥ï¼š%s\n", teachings[i].teacher.gender);
+                    printf("æ•™å¸«å­¸æ­·ï¼š%s\n", teachings[i].teacher.education);
+                    printf("æ•™å¸«è·ç¨±ï¼š%s\n", teachings[i].teacher.title);
                     printf("\n");
                 }
             }
         }
         else {
-            printf("¸Ó±Ğ®v¥¼±Ğ±Â±zªº½Òµ{\n");
+            printf("è©²æ•™å¸«æœªæ•™æˆæ‚¨çš„èª²ç¨‹\n");
         }
     }
     else {
-        printf("\n¥Î¤á¤£¦s¦b©Î¤£¬O¾Ç¥Í\n");
+        printf("\nç”¨æˆ¶ä¸å­˜åœ¨æˆ–ä¸æ˜¯å­¸ç”Ÿ\n");
     }
 }

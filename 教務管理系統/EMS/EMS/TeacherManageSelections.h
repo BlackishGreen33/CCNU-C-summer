@@ -3,8 +3,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "DataFormat.h" // ½Õ¥Î±Ğ°ÈºŞ²z¨t²Î¼Æ¾Ú®æ¦¡ÀY¤å¥ó
-#include "DataStorage.h" // ½Õ¥Î¥Î¤á¼Æ¾ÚÀY¤å¥ó
+#include "DataFormat.h" // èª¿ç”¨æ•™å‹™ç®¡ç†ç³»çµ±æ•¸æ“šæ ¼å¼é ­æ–‡ä»¶
+#include "DataStorage.h" // èª¿ç”¨ç”¨æˆ¶æ•¸æ“šé ­æ–‡ä»¶
 
 typedef enum {
     QUERY_SELECTIONS = 1,
@@ -12,31 +12,31 @@ typedef enum {
     RETURN_MAIN_MENU
 } SelectionsOption;
 
-// ¿ï½ÒºŞ²zµæ³æ
+// é¸èª²ç®¡ç†èœå–®
 void teacher_selection_management_menu() {
     system("cls");
-    printf("============¿ï½ÒºŞ²z============\n");
-    printf("\t1. ¬d¸ß¿ï½Ò«H®§\n");
-    printf("\t2. ­×§ï¾Ç¥Í¦¨ÁZ\n");
-    printf("\t3. ªğ¦^\n");
-    printf("\t½Ğ¿ï¾Ü¾Ş§@¡G");
+    printf("============é¸èª²ç®¡ç†============\n");
+    printf("\t1. æŸ¥è©¢é¸èª²ä¿¡æ¯\n");
+    printf("\t2. ä¿®æ”¹å­¸ç”Ÿæˆç¸¾\n");
+    printf("\t3. è¿”å›\n");
+    printf("\tè«‹é¸æ“‡æ“ä½œï¼š");
 }
 
-// ¬d¸ß¿ï½Ò«H®§
+// æŸ¥è©¢é¸èª²ä¿¡æ¯
 void query_selections(Teaching teachings[], int teaching_count, Selection selections[], int selection_count, char teacher_id[], char course_id[]) {
-    int teaching_index = -1; // ªì©l¤Æ§ä¨ìªº±Â½Ò¤U¼Ğ¬°-1
-    // ¦b±Â½Ò«H®§¼Æ²Õ¤¤¬d§ä¸Ó±Ğ®v¹ïÀ³ªº±Â½Ò«H®§ªº¤U¼Ğ
+    int teaching_index = -1; // åˆå§‹åŒ–æ‰¾åˆ°çš„æˆèª²ä¸‹æ¨™ç‚º-1
+    // åœ¨æˆèª²ä¿¡æ¯æ•¸çµ„ä¸­æŸ¥æ‰¾è©²æ•™å¸«å°æ‡‰çš„æˆèª²ä¿¡æ¯çš„ä¸‹æ¨™
     for (int i = 0; i < teaching_count; i++) {
         if (strcmp(teachings[i].teacher.teacher_id, teacher_id) == 0 && strcmp(teachings[i].course.course_id, course_id) == 0) {
             teaching_index = i;
             break;
         }
     }
-    if (teaching_index != -1) { // §ä¨ì±Â½Ò«H®§
-        printf("\n¿ï­×%s½Òµ{ªº¾Ç¥Í«H®§¡G\n", course_id);
+    if (teaching_index != -1) { // æ‰¾åˆ°æˆèª²ä¿¡æ¯
+        printf("\né¸ä¿®%sèª²ç¨‹çš„å­¸ç”Ÿä¿¡æ¯ï¼š\n", course_id);
         printf("================================\n");
-        printf("¾Ç¥Í½s¸¹\t¾Ç¥Í©m¦W\t¾Ç¥Í©Ê§O\t©Ò¦b¯Z¯Å\t¾Ç¥Í¦¨ÁZ\n");
-        // ¹M¾ú¿ï½Ò«H®§¼Æ²Õ¡A¥´¦L¸Ó½Òµ{ªº©Ò¦³¿ï½Ò¾Ç¥Í«H®§
+        printf("å­¸ç”Ÿç·¨è™Ÿ\tå­¸ç”Ÿå§“å\tå­¸ç”Ÿæ€§åˆ¥\tæ‰€åœ¨ç­ç´š\tå­¸ç”Ÿæˆç¸¾\n");
+        // éæ­·é¸èª²ä¿¡æ¯æ•¸çµ„ï¼Œæ‰“å°è©²èª²ç¨‹çš„æ‰€æœ‰é¸èª²å­¸ç”Ÿä¿¡æ¯
         for (int i = 0; i < selection_count; i++) {
             if (strcmp(selections[i].course.course_id, course_id) == 0) {
                 printf("%s\t%s\t%s\t%s\t%.1f\n", selections[i].student.student_id, selections[i].student.name, selections[i].student.gender, selections[i].student.classroom, selections[i].score);
@@ -44,49 +44,49 @@ void query_selections(Teaching teachings[], int teaching_count, Selection select
         }
     }
     else {
-        printf("\n±z¥¼±Ğ±Â¸Ó½Òµ{©Î¸Ó½Òµ{¤£¦s¦b\n");
+        printf("\næ‚¨æœªæ•™æˆè©²èª²ç¨‹æˆ–è©²èª²ç¨‹ä¸å­˜åœ¨\n");
     }
 }
 
-// ­×§ï¾Ç¥Í¦¨ÁZ
+// ä¿®æ”¹å­¸ç”Ÿæˆç¸¾
 void modify_score(Selection selections[], int selection_count, char student_id[], char course_id[], float score) {
-    int selection_index = -1; // ªì©l¤Æ§ä¨ìªº¿ï½Ò¤U¼Ğ¬°-1
-    // ¦b¿ï½Ò«H®§¼Æ²Õ¤¤¬d§ä¸Ó¾Ç¥Í¿ï½Ò«H®§ªº¤U¼Ğ
+    int selection_index = -1; // åˆå§‹åŒ–æ‰¾åˆ°çš„é¸èª²ä¸‹æ¨™ç‚º-1
+    // åœ¨é¸èª²ä¿¡æ¯æ•¸çµ„ä¸­æŸ¥æ‰¾è©²å­¸ç”Ÿé¸èª²ä¿¡æ¯çš„ä¸‹æ¨™
     for (int i = 0; i < selection_count; i++) {
         if (strcmp(selections[i].student.student_id, student_id) == 0 && strcmp(selections[i].course.course_id, course_id) == 0) {
             selection_index = i;
             break;
         }
     }
-    if (selection_index != -1) { // §ä¨ì¿ï½Ò«H®§
+    if (selection_index != -1) { // æ‰¾åˆ°é¸èª²ä¿¡æ¯
         selections[selection_index].score = score;
-        printf("¾Ç¥Í¦¨ÁZ­×§ï¦¨¥\\n");
+        printf("å­¸ç”Ÿæˆç¸¾ä¿®æ”¹æˆåŠŸ\n");
     }
     else {
-        printf("\n¸Ó¾Ç¥Í¥¼¿ï­×¸Ó½Òµ{©Î¸Ó½Òµ{¤£¦s¦b\n");
+        printf("\nè©²å­¸ç”Ÿæœªé¸ä¿®è©²èª²ç¨‹æˆ–è©²èª²ç¨‹ä¸å­˜åœ¨\n");
     }
 }
 
-// ¿ï½ÒºŞ²z
+// é¸èª²ç®¡ç†
 void teacher_selection_management() {
-    int user_index = -1; // ªì©l¤Æ§ä¨ìªº¥Î¤á¤U¼Ğ¬°-1
-    // ¦b¥Î¤á¼Æ²Õ¤¤¬d§ä·í«e¥Î¤áªº¤U¼Ğ
+    int user_index = -1; // åˆå§‹åŒ–æ‰¾åˆ°çš„ç”¨æˆ¶ä¸‹æ¨™ç‚º-1
+    // åœ¨ç”¨æˆ¶æ•¸çµ„ä¸­æŸ¥æ‰¾ç•¶å‰ç”¨æˆ¶çš„ä¸‹æ¨™
     for (int i = 0; i < user_count; i++) {
         if (strcmp(users[i].username, current_username) == 0) {
             user_index = i;
             break;
         }
     }
-    if (user_index != -1 && users[user_index].role == 2) { // ·í«e¥Î¤á¬°±Ğ®v
-        int option = 0; // ªì©l¤Æ¿ï¶µ¬°0
+    if (user_index != -1 && users[user_index].role == 2) { // ç•¶å‰ç”¨æˆ¶ç‚ºæ•™å¸«
+        int option = 0; // åˆå§‹åŒ–é¸é …ç‚º0
         while (1) {
             teacher_selection_management_menu();
             scanf("%d", &option);
             switch (option) {
             case QUERY_SELECTIONS:
                 {
-                    char course_id[20]; // ½Òµ{½s¸¹
-                    printf("\n½Ğ¿é¤J½Òµ{½s¸¹¡G");
+                    char course_id[20]; // èª²ç¨‹ç·¨è™Ÿ
+                    printf("\nè«‹è¼¸å…¥èª²ç¨‹ç·¨è™Ÿï¼š");
                     scanf("%s", course_id);
                     query_selections(teachings, teaching_count, selections, selection_count, users[user_index].user_id, course_id);
                 }
@@ -94,14 +94,14 @@ void teacher_selection_management() {
                 break;
             case MODIFY_SCORE:
                 {
-                    char student_id[20]; // ¾Ç¥Í½s¸¹
-                    char course_id[20]; // ½Òµ{½s¸¹
-                    float score; // ¾Ç¥Í¦¨ÁZ
-                    printf("\n½Ğ¿é¤J¾Ç¥Í½s¸¹¡G");
+                    char student_id[20]; // å­¸ç”Ÿç·¨è™Ÿ
+                    char course_id[20]; // èª²ç¨‹ç·¨è™Ÿ
+                    float score; // å­¸ç”Ÿæˆç¸¾
+                    printf("\nè«‹è¼¸å…¥å­¸ç”Ÿç·¨è™Ÿï¼š");
                     scanf("%s", student_id);
-                    printf("½Ğ¿é¤J½Òµ{½s¸¹¡G");
+                    printf("è«‹è¼¸å…¥èª²ç¨‹ç·¨è™Ÿï¼š");
                     scanf("%s", course_id);
-                    printf("½Ğ¿é¤J¾Ç¥Í¦¨ÁZ¡G");
+                    printf("è«‹è¼¸å…¥å­¸ç”Ÿæˆç¸¾ï¼š");
                     scanf("%f", &score);
                     modify_score(selections, selection_count, student_id, course_id, score);
                 }
@@ -110,13 +110,13 @@ void teacher_selection_management() {
             case RETURN_MAIN_MENU:
                 return;
             default:
-                printf("\nµL®Ä¿ï¶µ¡A½Ğ­«·s¿é¤J\n");
+                printf("\nç„¡æ•ˆé¸é …ï¼Œè«‹é‡æ–°è¼¸å…¥\n");
                 system("pause");
                 break;
             }
         }
     }
     else {
-        printf("\n¥Î¤á¤£¦s¦b©Î¤£¬O±Ğ®v\n");
+        printf("\nç”¨æˆ¶ä¸å­˜åœ¨æˆ–ä¸æ˜¯æ•™å¸«\n");
     }
 }

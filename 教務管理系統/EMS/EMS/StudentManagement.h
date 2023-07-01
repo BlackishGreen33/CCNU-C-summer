@@ -1,12 +1,12 @@
-#pragma once
+ï»¿#pragma once
 #pragma warning(disable:4996)
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "DataFormat.h" // ½Õ¥Î±Ğ°ÈºŞ²z¨t²Î¼Æ¾Ú®æ¦¡ÀY¤å¥ó
-#include "DataStorage.h" // ½Õ¥Î¥Î¤á¼Æ¾ÚÀY¤å¥ó
+#include "DataFormat.h" // èª¿ç”¨æ•™å‹™ç®¡ç†ç³»çµ±æ•¸æ“šæ ¼å¼é ­æ–‡ä»¶
+#include "DataStorage.h" // èª¿ç”¨ç”¨æˆ¶æ•¸æ“šé ­æ–‡ä»¶
 
-// ¾Ç¥ÍºŞ²zµæ³æ¿ï¶µ
+// å­¸ç”Ÿç®¡ç†èœå–®é¸é …
 enum StudentManagementOption {
     STUDENT_MANAGEMENT_QUERY_ALL_STUDENTS = 1,
     STUDENT_MANAGEMENT_ADD_STUDENT,
@@ -15,48 +15,48 @@ enum StudentManagementOption {
     STUDENT_MANAGEMENT_RETURN
 };
 
-// ¾Ç¥ÍºŞ²zµæ³æ
+// å­¸ç”Ÿç®¡ç†èœå–®
 void student_management_menu() {
     system("cls");
-    printf("============¾Ç¥ÍºŞ²z============\n");
-    printf("\t1. ¬d¸ß©Ò¦³¾Ç¥Í«H®§\n");
-    printf("\t2. ·s¼W¾Ç¥Í\n");
-    printf("\t3. ­×§ï¾Ç¥Í«H®§\n");
-    printf("\t4. §R°£¾Ç¥Í\n");
-    printf("\t5. ªğ¦^\n");
-    printf("\t½Ğ¿ï¾Ü¾Ş§@¡G");
+    printf("============å­¸ç”Ÿç®¡ç†============\n");
+    printf("\t1. æŸ¥è©¢æ‰€æœ‰å­¸ç”Ÿä¿¡æ¯\n");
+    printf("\t2. æ–°å¢å­¸ç”Ÿ\n");
+    printf("\t3. ä¿®æ”¹å­¸ç”Ÿä¿¡æ¯\n");
+    printf("\t4. åˆªé™¤å­¸ç”Ÿ\n");
+    printf("\t5. è¿”å›\n");
+    printf("\tè«‹é¸æ“‡æ“ä½œï¼š");
 }
 
-// ¬d¸ß©Ò¦³¾Ç¥Í«H®§
+// æŸ¥è©¢æ‰€æœ‰å­¸ç”Ÿä¿¡æ¯
 void query_all_students() {
-    printf("©Ò¦³¾Ç¥Í«H®§¦p¤U¡G\n");
+    printf("æ‰€æœ‰å­¸ç”Ÿä¿¡æ¯å¦‚ä¸‹ï¼š\n");
     printf("================================\n");
-    printf("¾Ç¥Í½s¸¹\t¾Ç¥Í©m¦W\t¾Ç¥Í©Ê§O\t¾Ç¥Í¯Z¯Å\n");
+    printf("å­¸ç”Ÿç·¨è™Ÿ\tå­¸ç”Ÿå§“å\tå­¸ç”Ÿæ€§åˆ¥\tå­¸ç”Ÿç­ç´š\n");
     for (int i = 0; i < student_count; i++) {
         printf("%s\t%s\t%s\t%s\n", students[i].student_id, students[i].name, students[i].gender, students[i].classroom);
     }
 }
 
-// ·s¼W¾Ç¥Í
+// æ–°å¢å­¸ç”Ÿ
 void add_student() {
     Student student;
-    printf("\n½Ğ¿é¤J·s¾Ç¥Í«H®§¡G\n");
-    printf("¾Ç¥Í½s¸¹¡G");
+    printf("\nè«‹è¼¸å…¥æ–°å­¸ç”Ÿä¿¡æ¯ï¼š\n");
+    printf("å­¸ç”Ÿç·¨è™Ÿï¼š");
     scanf("%s", student.student_id);
-    printf("¾Ç¥Í©m¦W¡G");
+    printf("å­¸ç”Ÿå§“åï¼š");
     scanf("%s", student.name);
-    printf("¾Ç¥Í©Ê§O¡G");
+    printf("å­¸ç”Ÿæ€§åˆ¥ï¼š");
     scanf("%s", student.gender);
-    printf("¾Ç¥Í¯Z¯Å¡G");
+    printf("å­¸ç”Ÿç­ç´šï¼š");
     scanf("%s", student.classroom);
     students[student_count++] = student;
-    printf("²K¥[¦¨¥\¡I\n");
+    printf("æ·»åŠ æˆåŠŸï¼\n");
 }
 
-// ­×§ï¾Ç¥Í«H®§
+// ä¿®æ”¹å­¸ç”Ÿä¿¡æ¯
 void modify_student() {
     char student_id[20];
-    printf("\n½Ğ¿é¤J­n­×§ïªº¾Ç¥Í½s¸¹¡G");
+    printf("\nè«‹è¼¸å…¥è¦ä¿®æ”¹çš„å­¸ç”Ÿç·¨è™Ÿï¼š");
     scanf("%s", student_id);
     int index = -1;
     for (int i = 0; i < student_count; i++) {
@@ -66,23 +66,23 @@ void modify_student() {
         }
     }
     if (index == -1) {
-        printf("¥¼§ä¨ì¸Ó¾Ç¥Í\n");
+        printf("æœªæ‰¾åˆ°è©²å­¸ç”Ÿ\n");
     }
     else {
-        printf("½Ğ¿é¤J·sªº¾Ç¥Í©m¦W¡G");
+        printf("è«‹è¼¸å…¥æ–°çš„å­¸ç”Ÿå§“åï¼š");
         scanf("%s", students[index].name);
-        printf("½Ğ¿é¤J·sªº¾Ç¥Í©Ê§O¡G");
+        printf("è«‹è¼¸å…¥æ–°çš„å­¸ç”Ÿæ€§åˆ¥ï¼š");
         scanf("%s", students[index].gender);
-        printf("½Ğ¿é¤J·sªº¾Ç¥Í¯Z¯Å¡G");
+        printf("è«‹è¼¸å…¥æ–°çš„å­¸ç”Ÿç­ç´šï¼š");
         scanf("%s", students[index].classroom);
-        printf("­×§ï¦¨¥\¡I\n");
+        printf("ä¿®æ”¹æˆåŠŸï¼\n");
     }
 }
 
-// §R°£¾Ç¥Í
+// åˆªé™¤å­¸ç”Ÿ
 void delete_student() {
     char student_id[20];
-    printf("\n½Ğ¿é¤J­n§R°£ªº¾Ç¥Í½s¸¹¡G");
+    printf("\nè«‹è¼¸å…¥è¦åˆªé™¤çš„å­¸ç”Ÿç·¨è™Ÿï¼š");
     scanf("%s", student_id);
     int index = -1;
     for (int i = 0; i < student_count; i++) {
@@ -92,19 +92,19 @@ void delete_student() {
         }
     }
     if (index == -1) {
-        printf("¥¼§ä¨ì¸Ó¾Ç¥Í\n");
+        printf("æœªæ‰¾åˆ°è©²å­¸ç”Ÿ\n");
     }
     else {
-        // §R°£¾Ç¥Í
+        // åˆªé™¤å­¸ç”Ÿ
         for (int i = index; i < student_count - 1; i++) {
             students[i] = students[i + 1];
         }
         student_count--;
-        printf("§R°£¦¨¥\¡I\n");
+        printf("åˆªé™¤æˆåŠŸï¼\n");
     }
 }
 
-// ¾Ç¥ÍºŞ²z¥\¯à
+// å­¸ç”Ÿç®¡ç†åŠŸèƒ½
 void student_management() {
     while (1) {
         student_management_menu();
@@ -130,7 +130,7 @@ void student_management() {
         case STUDENT_MANAGEMENT_RETURN:
             return;
         default:
-            printf("µL®Ä¿ï¶µ¡A½Ğ­«·s¿é¤J\n");
+            printf("ç„¡æ•ˆé¸é …ï¼Œè«‹é‡æ–°è¼¸å…¥\n");
             system("pause");
             break;
         }

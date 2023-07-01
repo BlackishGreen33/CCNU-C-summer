@@ -1,17 +1,17 @@
-#pragma once
+﻿#pragma once
 #pragma warning(disable:4996)
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "DataFormat.h" // �եαаȺ޲z�t�μƾڮ榡�Y���
-#include "DataStorage.h" // �եΥΤ�ƾ��Y���
+#include "DataFormat.h" // 調用教務管理系統數據格式頭文件
+#include "DataStorage.h" // 調用用戶數據頭文件
 
 void modify_password() {
     char new_password[20];
-    printf("\n�п�J�s�K�X�G");
+    printf("\n請輸入新密碼：");
     scanf("%s", new_password);
-    int index = -1; // ��l�Ƨ�쪺�Τ�U�Ь�-1
-    // �b�Τ�Ʋդ��d����e�Τ᪺�U��
+    int index = -1; // 初始化找到的用戶下標為-1
+    // 在用戶數組中查找當前用戶的下標
     for (int i = 0; i < user_count; i++) {
         if (strcmp(users[i].username, current_username) == 0) {
             index = i;
@@ -19,11 +19,11 @@ void modify_password() {
         }
     }
     if (index != -1) {
-        // ���Τ�íק�K�X
+        // 找到用戶並修改密碼
         strcpy(users[index].password, new_password);
-        printf("�K�X�ק令�\\n");
+        printf("密碼修改成功\n");
     }
     else {
-        printf("�Τᤣ�s�b\n");
+        printf("用戶不存在\n");
     }
 }

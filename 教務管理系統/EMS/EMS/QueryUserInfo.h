@@ -1,14 +1,14 @@
-#pragma once
+ï»¿#pragma once
 #pragma warning(disable:4996)
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "DataFormat.h" // ½Õ¥Î±Ğ°ÈºŞ²z¨t²Î¼Æ¾Ú®æ¦¡ÀY¤å¥ó
-#include "DataStorage.h" // ½Õ¥Î¥Î¤á¼Æ¾ÚÀY¤å¥ó
+#include "DataFormat.h" // èª¿ç”¨æ•™å‹™ç®¡ç†ç³»çµ±æ•¸æ“šæ ¼å¼é ­æ–‡ä»¶
+#include "DataStorage.h" // èª¿ç”¨ç”¨æˆ¶æ•¸æ“šé ­æ–‡ä»¶
 
 void query_user_info() {
-    int index = -1; // ªì©l¤Æ§ä¨ìªº¥Î¤á¤U¼Ğ¬°-1
-    // ¦b¥Î¤á¼Æ²Õ¤¤¬d§ä·í«e¥Î¤áªº¤U¼Ğ
+    int index = -1; // åˆå§‹åŒ–æ‰¾åˆ°çš„ç”¨æˆ¶ä¸‹æ¨™ç‚º-1
+    // åœ¨ç”¨æˆ¶æ•¸çµ„ä¸­æŸ¥æ‰¾ç•¶å‰ç”¨æˆ¶çš„ä¸‹æ¨™
     for (int i = 0; i < user_count; i++) {
         if (strcmp(users[i].username, current_username) == 0) {
             index = i;
@@ -16,13 +16,13 @@ void query_user_info() {
         }
     }
     if (index != -1) {
-        // §ä¨ì¥Î¤á¨Ã¥´¦L¥Î¤á«H®§
-        printf("\n¥Î¤áID¡G%s\n", users[index].user_id);
-        printf("¥Î¤á¦W¡G%s\n", users[index].username);
-        printf("¥Î¤á±K½X¡G%s\n", users[index].password);
-        printf("¥Î¤áÅv­­¡G%d\n", users[index].role);
+        // æ‰¾åˆ°ç”¨æˆ¶ä¸¦æ‰“å°ç”¨æˆ¶ä¿¡æ¯
+        printf("\nç”¨æˆ¶IDï¼š%s\n", users[index].user_id);
+        printf("ç”¨æˆ¶åï¼š%s\n", users[index].username);
+        printf("ç”¨æˆ¶å¯†ç¢¼ï¼š%s\n", users[index].password);
+        printf("ç”¨æˆ¶æ¬Šé™ï¼š%d\n", users[index].role);
     }
     else {
-        printf("\n¥Î¤á¤£¦s¦b\n");
+        printf("\nç”¨æˆ¶ä¸å­˜åœ¨\n");
     }
 }

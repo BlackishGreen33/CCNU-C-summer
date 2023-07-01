@@ -1,12 +1,12 @@
-#pragma once
+ï»¿#pragma once
 #pragma warning(disable:4996)
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "DataFormat.h" // ½Õ¥Î±Ğ°ÈºŞ²z¨t²Î¼Æ¾Ú®æ¦¡ÀY¤å¥ó
-#include "DataStorage.h" // ½Õ¥Î¥Î¤á¼Æ¾ÚÀY¤å¥ó
+#include "DataFormat.h" // èª¿ç”¨æ•™å‹™ç®¡ç†ç³»çµ±æ•¸æ“šæ ¼å¼é ­æ–‡ä»¶
+#include "DataStorage.h" // èª¿ç”¨ç”¨æˆ¶æ•¸æ“šé ­æ–‡ä»¶
 
-// ±Ğ®vºŞ²zµæ³æ¿ï¶µ
+// æ•™å¸«ç®¡ç†èœå–®é¸é …
 enum TeacherManagementOption {
 	TEACHER_MANAGEMENT_QUERY_ALL_TEACHERS = 1,
 	TEACHER_MANAGEMENT_ADD_TEACHER,
@@ -15,50 +15,50 @@ enum TeacherManagementOption {
 	TEACHER_MANAGEMENT_RETURN
 };
 
-// ±Ğ®vºŞ²zµæ³æ
+// æ•™å¸«ç®¡ç†èœå–®
 void teacher_management_menu() {
 	system("cls");
-	printf("============±Ğ®vºŞ²z============\n");
-	printf("\t1. ¬d¸ß©Ò¦³±Ğ®v«H®§\n");
-	printf("\t2. ·s¼W±Ğ®v\n");
-	printf("\t3. ­×§ï±Ğ®v«H®§\n");
-	printf("\t4. §R°£±Ğ®v\n");
-	printf("\t5. ªğ¦^\n");
-	printf("\t½Ğ¿ï¾Ü¾Ş§@¡G");
+	printf("============æ•™å¸«ç®¡ç†============\n");
+	printf("\t1. æŸ¥è©¢æ‰€æœ‰æ•™å¸«ä¿¡æ¯\n");
+	printf("\t2. æ–°å¢æ•™å¸«\n");
+	printf("\t3. ä¿®æ”¹æ•™å¸«ä¿¡æ¯\n");
+	printf("\t4. åˆªé™¤æ•™å¸«\n");
+	printf("\t5. è¿”å›\n");
+	printf("\tè«‹é¸æ“‡æ“ä½œï¼š");
 }
 
-// ¬d¸ß©Ò¦³±Ğ®v«H®§
+// æŸ¥è©¢æ‰€æœ‰æ•™å¸«ä¿¡æ¯
 void query_all_teachers() {
-	printf("\n©Ò¦³±Ğ®v«H®§¦p¤U¡G\n");
+	printf("\næ‰€æœ‰æ•™å¸«ä¿¡æ¯å¦‚ä¸‹ï¼š\n");
 	printf("================================\n");
-	printf("±Ğ®vID\t±Ğ®v©m¦W\t±Ğ®v©Ê§O\t±Ğ®v¾Ç¾ú\t±Ğ®vÂ¾ºÙ\n");
+	printf("æ•™å¸«ID\tæ•™å¸«å§“å\tæ•™å¸«æ€§åˆ¥\tæ•™å¸«å­¸æ­·\tæ•™å¸«è·ç¨±\n");
 	for (int i = 0; i < teacher_count; i++) {
 		printf("%s\t%s\t%s\t%s\t%s\n", teachers[i].teacher_id, teachers[i].name, teachers[i].gender, teachers[i].education, teachers[i].title);
 	}
 }
 
-// ·s¼W±Ğ®v
+// æ–°å¢æ•™å¸«
 void add_teacher() {
 	Teacher teacher;
-	printf("\n½Ğ¿é¤J·s±Ğ®v«H®§¡G\n");
-	printf("±Ğ®vID¡G");
+	printf("\nè«‹è¼¸å…¥æ–°æ•™å¸«ä¿¡æ¯ï¼š\n");
+	printf("æ•™å¸«IDï¼š");
 	scanf("%s", teacher.teacher_id);
-	printf("±Ğ®v©m¦W¡G");
+	printf("æ•™å¸«å§“åï¼š");
 	scanf("%s", teacher.name);
-	printf("±Ğ®v©Ê§O¡G");
+	printf("æ•™å¸«æ€§åˆ¥ï¼š");
 	scanf("%s", teacher.gender);
-	printf("±Ğ®v¾Ç¾ú¡G");
+	printf("æ•™å¸«å­¸æ­·ï¼š");
 	scanf("%s", teacher.education);
-	printf("±Ğ®vÂ¾ºÙ¡G");
+	printf("æ•™å¸«è·ç¨±ï¼š");
 	scanf("%s", teacher.title);
 	teachers[teacher_count++] = teacher;
-	printf("²K¥[¦¨¥\¡I\n");
+	printf("æ·»åŠ æˆåŠŸï¼\n");
 }
 
-// ­×§ï±Ğ®v«H®§
+// ä¿®æ”¹æ•™å¸«ä¿¡æ¯
 void modify_teacher() {
 	char teacher_id[20];
-	printf("\n½Ğ¿é¤J­n­×§ïªº±Ğ®vID¡G");
+	printf("\nè«‹è¼¸å…¥è¦ä¿®æ”¹çš„æ•™å¸«IDï¼š");
 	scanf("%s", teacher_id);
 	int index = -1;
 	for (int i = 0; i < teacher_count; i++) {
@@ -68,25 +68,25 @@ void modify_teacher() {
 		}
 	}
 	if (index == -1) {
-		printf("¥¼§ä¨ì¸Ó±Ğ®v\n");
+		printf("æœªæ‰¾åˆ°è©²æ•™å¸«\n");
 	}
 	else {
-		printf("½Ğ¿é¤J·sªº±Ğ®v©m¦W¡G");
+		printf("è«‹è¼¸å…¥æ–°çš„æ•™å¸«å§“åï¼š");
 		scanf("%s", teachers[index].name);
-		printf("½Ğ¿é¤J·sªº±Ğ®v©Ê§O¡G");
+		printf("è«‹è¼¸å…¥æ–°çš„æ•™å¸«æ€§åˆ¥ï¼š");
 		scanf("%s", teachers[index].gender);
-		printf("½Ğ¿é¤J·sªº±Ğ®v¾Ç¾ú¡G");
+		printf("è«‹è¼¸å…¥æ–°çš„æ•™å¸«å­¸æ­·ï¼š");
 		scanf("%s", teachers[index].education);
-		printf("½Ğ¿é¤J·sªº±Ğ®vÂ¾ºÙ¡G");
+		printf("è«‹è¼¸å…¥æ–°çš„æ•™å¸«è·ç¨±ï¼š");
 		scanf("%s", teachers[index].title);
-		printf("­×§ï¦¨¥\¡I\n");
+		printf("ä¿®æ”¹æˆåŠŸï¼\n");
 	}
 }
 
-// §R°£±Ğ®v
+// åˆªé™¤æ•™å¸«
 void delete_teacher() {
 	char teacher_id[20];
-	printf("\n½Ğ¿é¤J­n§R°£ªº±Ğ®vID¡G");
+	printf("\nè«‹è¼¸å…¥è¦åˆªé™¤çš„æ•™å¸«IDï¼š");
 	scanf("%s", teacher_id);
 	int index = -1;
 	for (int i = 0; i < teacher_count; i++) {
@@ -96,19 +96,19 @@ void delete_teacher() {
 		}
 	}
 	if (index == -1) {
-		printf("¥¼§ä¨ì¸Ó±Ğ®v\n");
+		printf("æœªæ‰¾åˆ°è©²æ•™å¸«\n");
 	}
 	else {
-		// §R°£±Ğ®v
+		// åˆªé™¤æ•™å¸«
 		for (int i = index; i < teacher_count - 1; i++) {
 			teachers[i] = teachers[i + 1];
 		}
 		teacher_count--;
-		printf("§R°£¦¨¥\¡I\n");
+		printf("åˆªé™¤æˆåŠŸï¼\n");
 	}
 }
 
-// ±Ğ®vºŞ²z¥\¯à
+// æ•™å¸«ç®¡ç†åŠŸèƒ½
 void teacher_management() {
 	while (1) {
 		teacher_management_menu();
@@ -134,7 +134,7 @@ void teacher_management() {
 		case TEACHER_MANAGEMENT_RETURN:
 			return;
 		default:
-			printf("\nµL®Ä¿ï¶µ¡A½Ğ­«·s¿é¤J\n");
+			printf("\nç„¡æ•ˆé¸é …ï¼Œè«‹é‡æ–°è¼¸å…¥\n");
 			system("pause");
 			break;
 		}

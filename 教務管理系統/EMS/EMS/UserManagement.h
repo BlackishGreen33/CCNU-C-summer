@@ -1,12 +1,12 @@
-#pragma once
+ï»¿#pragma once
 #pragma warning(disable:4996)
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "DataFormat.h" // ½Õ¥Î±Ğ°ÈºŞ²z¨t²Î¼Æ¾Ú®æ¦¡ÀY¤å¥ó
-#include "DataStorage.h" // ½Õ¥Î¥Î¤á¼Æ¾ÚÀY¤å¥ó
+#include "DataFormat.h" // èª¿ç”¨æ•™å‹™ç®¡ç†ç³»çµ±æ•¸æ“šæ ¼å¼é ­æ–‡ä»¶
+#include "DataStorage.h" // èª¿ç”¨ç”¨æˆ¶æ•¸æ“šé ­æ–‡ä»¶
 
-// ¥Î¤áºŞ²zµæ³æ¿ï¶µ
+// ç”¨æˆ¶ç®¡ç†èœå–®é¸é …
 enum UserManagementOption {
 	USER_MANAGEMENT_QUERY_ALL_USERS = 1,
 	USER_MANAGEMENT_ADD_USER,
@@ -15,62 +15,62 @@ enum UserManagementOption {
 	USER_MANAGEMENT_RETURN
 };
 
-// ¥Î¤áºŞ²zµæ³æ
+// ç”¨æˆ¶ç®¡ç†èœå–®
 void user_management_menu() {
 	system("cls");
-	printf("============¥Î¤áºŞ²z============\n");
-	printf("\t1. ¬d¸ß©Ò¦³¥Î¤á«H®§\n");
-	printf("\t2. ·s¼W¥Î¤á\n");
-	printf("\t3. ­×§ï¥Î¤á«H®§\n");
-	printf("\t4. §R°£¥Î¤á\n");
-	printf("\t5. ªğ¦^\n");
-	printf("\t½Ğ¿ï¾Ü¾Ş§@¡G");
+	printf("============ç”¨æˆ¶ç®¡ç†============\n");
+	printf("\t1. æŸ¥è©¢æ‰€æœ‰ç”¨æˆ¶ä¿¡æ¯\n");
+	printf("\t2. æ–°å¢ç”¨æˆ¶\n");
+	printf("\t3. ä¿®æ”¹ç”¨æˆ¶ä¿¡æ¯\n");
+	printf("\t4. åˆªé™¤ç”¨æˆ¶\n");
+	printf("\t5. è¿”å›\n");
+	printf("\tè«‹é¸æ“‡æ“ä½œï¼š");
 }
 
-// ¬d¸ß©Ò¦³¥Î¤á«H®§
+// æŸ¥è©¢æ‰€æœ‰ç”¨æˆ¶ä¿¡æ¯
 void query_all_users() {
-	printf("\n©Ò¦³¥Î¤á«H®§¦p¤U¡G\n");
-	printf("¥Î¤áID\t¥Î¤á¦W\t\t¨¤¦â\n");
+	printf("\næ‰€æœ‰ç”¨æˆ¶ä¿¡æ¯å¦‚ä¸‹ï¼š\n");
+	printf("ç”¨æˆ¶ID\tç”¨æˆ¶å\t\tè§’è‰²\n");
 	printf("================================\n");
 	for (int i = 0; i < user_count; i++) {
 		printf("%s\t%s\t", users[i].user_id, users[i].username);
 		switch (users[i].role) {
 		case 1:
-			printf("\tºŞ²z­û\n");
+			printf("\tç®¡ç†å“¡\n");
 			break;
 		case 2:
-			printf("±Ğ®v\n");
+			printf("æ•™å¸«\n");
 			break;
 		case 3:
-			printf("¾Ç¥Í\n");
+			printf("å­¸ç”Ÿ\n");
 			break;
 		default:
-			printf("¥¼ª¾¨¤¦â\n");
+			printf("æœªçŸ¥è§’è‰²\n");
 			break;
 		}
 	}
 }
 
-// ·s¼W¥Î¤á
+// æ–°å¢ç”¨æˆ¶
 void add_user() {
 	User user;
-	printf("\n½Ğ¿é¤J·s¥Î¤á«H®§¡G\n");
-	printf("¥Î¤áID¡G");
+	printf("\nè«‹è¼¸å…¥æ–°ç”¨æˆ¶ä¿¡æ¯ï¼š\n");
+	printf("ç”¨æˆ¶IDï¼š");
 	scanf("%s", user.user_id);
-	printf("¥Î¤á¦W¡G");
+	printf("ç”¨æˆ¶åï¼š");
 	scanf("%s", user.username);
-	printf("±K½X¡G");
+	printf("å¯†ç¢¼ï¼š");
 	scanf("%s", user.password);
-	printf("¥Î¤á¨¤¦â¡]1.ºŞ²z­û¡A2.±Ğ®v¡A3.¾Ç¥Í¡^¡G");
+	printf("ç”¨æˆ¶è§’è‰²ï¼ˆ1.ç®¡ç†å“¡ï¼Œ2.æ•™å¸«ï¼Œ3.å­¸ç”Ÿï¼‰ï¼š");
 	scanf("%d", &user.role);
 	users[user_count++] = user;
-	printf("²K¥[¦¨¥\¡I\n");
+	printf("æ·»åŠ æˆåŠŸï¼\n");
 }
 
-// ­×§ï¥Î¤á«H®§
+// ä¿®æ”¹ç”¨æˆ¶ä¿¡æ¯
 void modify_user() {
 	char user_id[20];
-	printf("\n½Ğ¿é¤J­n­×§ïªº¥Î¤áID¡G");
+	printf("\nè«‹è¼¸å…¥è¦ä¿®æ”¹çš„ç”¨æˆ¶IDï¼š");
 	scanf("%s", user_id);
 	int index = -1;
 	for (int i = 0; i < user_count; i++) {
@@ -80,23 +80,23 @@ void modify_user() {
 		}
 	}
 	if (index == -1) {
-		printf("¥¼§ä¨ì¸Ó¥Î¤á\n");
+		printf("æœªæ‰¾åˆ°è©²ç”¨æˆ¶\n");
 	}
 	else {
-		printf("½Ğ¿é¤J·sªº¥Î¤á¦W¡G");
+		printf("è«‹è¼¸å…¥æ–°çš„ç”¨æˆ¶åï¼š");
 		scanf("%s", users[index].username);
-		printf("½Ğ¿é¤J·sªº±K½X¡G");
+		printf("è«‹è¼¸å…¥æ–°çš„å¯†ç¢¼ï¼š");
 		scanf("%s", users[index].password);
-		printf("½Ğ¿é¤J·sªº¥Î¤á¨¤¦â¡]1.ºŞ²z­û¡A2.±Ğ®v¡A3.¾Ç¥Í¡^¡G");
+		printf("è«‹è¼¸å…¥æ–°çš„ç”¨æˆ¶è§’è‰²ï¼ˆ1.ç®¡ç†å“¡ï¼Œ2.æ•™å¸«ï¼Œ3.å­¸ç”Ÿï¼‰ï¼š");
 		scanf("%d", &users[index].role);
-		printf("­×§ï¦¨¥\¡I\n");
+		printf("ä¿®æ”¹æˆåŠŸï¼\n");
 	}
 }
 
-// §R°£¥Î¤á
+// åˆªé™¤ç”¨æˆ¶
 void delete_user() {
 	char user_id[20];
-	printf("\n½Ğ¿é¤J­n§R°£ªº¥Î¤áID¡G");
+	printf("\nè«‹è¼¸å…¥è¦åˆªé™¤çš„ç”¨æˆ¶IDï¼š");
 	scanf("%s", user_id);
 	int index = -1;
 	for (int i = 0; i < user_count; i++) {
@@ -106,19 +106,19 @@ void delete_user() {
 		}
 	}
 	if (index == -1) {
-		printf("¥¼§ä¨ì¸Ó¥Î¤á\n");
+		printf("æœªæ‰¾åˆ°è©²ç”¨æˆ¶\n");
 	}
 	else {
-		// §R°£¥Î¤á
+		// åˆªé™¤ç”¨æˆ¶
 		for (int i = index; i < user_count - 1; i++) {
 			users[i] = users[i + 1];
 		}
 		user_count--;
-		printf("§R°£¦¨¥\¡I\n");
+		printf("åˆªé™¤æˆåŠŸï¼\n");
 	}
 }
 
-// ¥Î¤áºŞ²z¥\¯à
+// ç”¨æˆ¶ç®¡ç†åŠŸèƒ½
 void user_management() {
 	while (1) {
 		user_management_menu();
@@ -144,7 +144,7 @@ void user_management() {
 		case USER_MANAGEMENT_RETURN:
 			return;
 		default:
-			printf("\nµL®Ä¿ï¶µ¡A½Ğ­«·s¿é¤J\n");
+			printf("\nç„¡æ•ˆé¸é …ï¼Œè«‹é‡æ–°è¼¸å…¥\n");
 			system("pause");
 			break;
 		}
