@@ -14,13 +14,14 @@ enum StudentMenuOption {
 };
 
 void student_menu() {
-    printf("學生界面\n");
-    printf("1. 修改用戶密碼\n");
-    printf("2. 課程信息查詢\n");
-    printf("3. 授課信息查詢\n");
-    printf("4. 選課信息查詢\n");
-    printf("5. 返回主菜單\n");
-    printf("請選擇操作：");
+    system("cls");
+    printf("============學生界面============\n");
+    printf("\t1. 修改用戶密碼\n");
+    printf("\t2. 課程信息查詢\n");
+    printf("\t3. 授課信息查詢\n");
+    printf("\t4. 選課信息查詢\n");
+    printf("\t5. 返回主菜單\n");
+    printf("\t請選擇操作：");
 }
 
 void student_interface() {
@@ -31,21 +32,27 @@ void student_interface() {
         switch (choice) {
         case STUDENT_MODIFY_PASSWORD:
             modify_password();
+            system("pause");
             break;
         case STUDENT_QUERY_COURSE_INFO:
             query_student_selection_info();
+            system("pause");
             break;
         case STUDENT_QUERY_TEACHING_INFO:
             query_student_teachers_info();
+            system("pause");
             break;
         case STUDENT_QUERY_SELECTION_INFO:
             student_query_selection();
+            system("pause");
             break;
         case STUDENT_RETURN:
             printf("再見！\n");
+            system("pause");
             exit(0);
         default:
             printf("無效選項，請重新輸入\n");
+            system("pause");
             break;
         }
     } while (choice != STUDENT_RETURN);

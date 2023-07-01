@@ -17,24 +17,26 @@ enum UserManagementOption {
 
 // 用戶管理菜單
 void user_management_menu() {
-	printf("用戶管理\n");
-	printf("1. 查詢所有用戶信息\n");
-	printf("2. 新增用戶\n");
-	printf("3. 修改用戶信息\n");
-	printf("4. 刪除用戶\n");
-	printf("5. 返回\n");
-	printf("請選擇操作：");
+	system("cls");
+	printf("============用戶管理============\n");
+	printf("\t1. 查詢所有用戶信息\n");
+	printf("\t2. 新增用戶\n");
+	printf("\t3. 修改用戶信息\n");
+	printf("\t4. 刪除用戶\n");
+	printf("\t5. 返回\n");
+	printf("\t請選擇操作：");
 }
 
 // 查詢所有用戶信息
 void query_all_users() {
-	printf("所有用戶信息如下：\n");
-	printf("用戶ID\t用戶名\t角色\n");
+	printf("\n所有用戶信息如下：\n");
+	printf("用戶ID\t用戶名\t\t角色\n");
+	printf("================================\n");
 	for (int i = 0; i < user_count; i++) {
 		printf("%s\t%s\t", users[i].user_id, users[i].username);
 		switch (users[i].role) {
 		case 1:
-			printf("管理員\n");
+			printf("\t管理員\n");
 			break;
 		case 2:
 			printf("教師\n");
@@ -52,7 +54,7 @@ void query_all_users() {
 // 新增用戶
 void add_user() {
 	User user;
-	printf("請輸入新用戶信息：\n");
+	printf("\n請輸入新用戶信息：\n");
 	printf("用戶ID：");
 	scanf("%s", user.user_id);
 	printf("用戶名：");
@@ -68,7 +70,7 @@ void add_user() {
 // 修改用戶信息
 void modify_user() {
 	char user_id[20];
-	printf("請輸入要修改的用戶ID：");
+	printf("\n請輸入要修改的用戶ID：");
 	scanf("%s", user_id);
 	int index = -1;
 	for (int i = 0; i < user_count; i++) {
@@ -94,7 +96,7 @@ void modify_user() {
 // 刪除用戶
 void delete_user() {
 	char user_id[20];
-	printf("請輸入要刪除的用戶ID：");
+	printf("\n請輸入要刪除的用戶ID：");
 	scanf("%s", user_id);
 	int index = -1;
 	for (int i = 0; i < user_count; i++) {
@@ -125,20 +127,25 @@ void user_management() {
 		switch (option) {
 		case USER_MANAGEMENT_QUERY_ALL_USERS:
 			query_all_users();
+			system("pause");
 			break;
 		case USER_MANAGEMENT_ADD_USER:
 			add_user();
+			system("pause");
 			break;
 		case USER_MANAGEMENT_MODIFY_USER:
 			modify_user();
+			system("pause");
 			break;
 		case USER_MANAGEMENT_DELETE_USER:
 			delete_user();
+			system("pause");
 			break;
 		case USER_MANAGEMENT_RETURN:
 			return;
 		default:
-			printf("無效選項，請重新輸入\n");
+			printf("\n無效選項，請重新輸入\n");
+			system("pause");
 			break;
 		}
 	}

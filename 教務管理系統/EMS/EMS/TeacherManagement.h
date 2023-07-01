@@ -17,18 +17,20 @@ enum TeacherManagementOption {
 
 // 教師管理菜單
 void teacher_management_menu() {
-	printf("教師管理\n");
-	printf("1. 查詢所有教師信息\n");
-	printf("2. 新增教師\n");
-	printf("3. 修改教師信息\n");
-	printf("4. 刪除教師\n");
-	printf("5. 返回\n");
-	printf("請選擇操作：");
+	system("cls");
+	printf("============教師管理============\n");
+	printf("\t1. 查詢所有教師信息\n");
+	printf("\t2. 新增教師\n");
+	printf("\t3. 修改教師信息\n");
+	printf("\t4. 刪除教師\n");
+	printf("\t5. 返回\n");
+	printf("\t請選擇操作：");
 }
 
 // 查詢所有教師信息
 void query_all_teachers() {
-	printf("所有教師信息如下：\n");
+	printf("\n所有教師信息如下：\n");
+	printf("================================\n");
 	printf("教師ID\t教師姓名\t教師性別\t教師學歷\t教師職稱\n");
 	for (int i = 0; i < teacher_count; i++) {
 		printf("%s\t%s\t%s\t%s\t%s\n", teachers[i].teacher_id, teachers[i].name, teachers[i].gender, teachers[i].education, teachers[i].title);
@@ -38,7 +40,7 @@ void query_all_teachers() {
 // 新增教師
 void add_teacher() {
 	Teacher teacher;
-	printf("請輸入新教師信息：\n");
+	printf("\n請輸入新教師信息：\n");
 	printf("教師ID：");
 	scanf("%s", teacher.teacher_id);
 	printf("教師姓名：");
@@ -56,7 +58,7 @@ void add_teacher() {
 // 修改教師信息
 void modify_teacher() {
 	char teacher_id[20];
-	printf("請輸入要修改的教師ID：");
+	printf("\n請輸入要修改的教師ID：");
 	scanf("%s", teacher_id);
 	int index = -1;
 	for (int i = 0; i < teacher_count; i++) {
@@ -84,7 +86,7 @@ void modify_teacher() {
 // 刪除教師
 void delete_teacher() {
 	char teacher_id[20];
-	printf("請輸入要刪除的教師ID：");
+	printf("\n請輸入要刪除的教師ID：");
 	scanf("%s", teacher_id);
 	int index = -1;
 	for (int i = 0; i < teacher_count; i++) {
@@ -115,20 +117,25 @@ void teacher_management() {
 		switch (option) {
 		case TEACHER_MANAGEMENT_QUERY_ALL_TEACHERS:
 			query_all_teachers();
+			system("pause");
 			break;
 		case TEACHER_MANAGEMENT_ADD_TEACHER:
 			add_teacher();
+			system("pause");
 			break;
 		case TEACHER_MANAGEMENT_MODIFY_TEACHER:
 			modify_teacher();
+			system("pause");
 			break;
 		case TEACHER_MANAGEMENT_DELETE_TEACHER:
 			delete_teacher();
+			system("pause");
 			break;
 		case TEACHER_MANAGEMENT_RETURN:
 			return;
 		default:
-			printf("無效選項，請重新輸入\n");
+			printf("\n無效選項，請重新輸入\n");
+			system("pause");
 			break;
 		}
 	}

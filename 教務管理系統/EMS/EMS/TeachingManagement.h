@@ -17,18 +17,20 @@ enum TeachingManagementOption {
 
 // 授課管理菜單
 void teaching_management_menu() {
-    printf("課程管理\n");
-    printf("1. 查詢所有授課信息\n");
-    printf("2. 新增授課\n");
-    printf("3. 修改授課信息\n");
-    printf("4. 刪除授課\n");
-    printf("5. 返回主菜單\n");
-    printf("請選擇操作：");
+    system("cls");
+    printf("===========課程管理===========\n");
+    printf("\t1. 查詢所有授課信息\n");
+    printf("\t2. 新增授課\n");
+    printf("\t3. 修改授課信息\n");
+    printf("\t4. 刪除授課\n");
+    printf("\t5. 返回\n");
+    printf("\t請選擇操作：");
 }
 
 // 查詢所有授課信息
 void query_all_teaching() {
     printf("所有授課信息如下：\n");
+    printf("================================\n");
     printf("授課ID\t課程編號\t課程名稱\t教師編號\t教師姓名\n");
     for (int i = 0; i < teaching_count; i++) {
         printf("%d\t%s\t%s\t%s\t%s\n",
@@ -42,7 +44,7 @@ void query_all_teaching() {
 
 // 新增授課
 void add_teaching() {
-    printf("請輸入授課信息：\n");
+    printf("\n請輸入授課信息：\n");
     Teaching new_teaching;
 
     // 通過輸入課程編號和教師編號，查找課程和教師信息
@@ -93,7 +95,7 @@ void add_teaching() {
 
 // 修改授課信息
 void modify_teaching() {
-    printf("請輸入要修改的授課ID：");
+    printf("\n請輸入要修改的授課ID：");
     int teach_id;
     scanf("%d", &teach_id);
 
@@ -160,7 +162,7 @@ void modify_teaching() {
 
 // 刪除授課
 void delete_teaching() {
-    printf("請輸入要刪除的授課ID：");
+    printf("\n請輸入要刪除的授課ID：");
     int teach_id;
     scanf("%d", &teach_id);
 
@@ -195,30 +197,33 @@ void delete_teaching() {
 
 // 授課管理
 void teaching_management() {
-    char option;
-    do {
+    while (1) {
         teaching_management_menu();
-        scanf(" %c", &option);
-
+        int option;
+        scanf("%d", &option);
         switch (option) {
         case TEACHING_MANAGEMENT_QUERY_ALL_TEACHING:
             query_all_teaching();
+            system("pause");
             break;
         case TEACHING_MANAGEMENT_ADD_TEACHING:
             add_teaching();
+            system("pause");
             break;
         case TEACHING_MANAGEMENT_MODIFY_TEACHING:
             modify_teaching();
+            system("pause");
             break;
         case TEACHING_MANAGEMENT_DELETE_TEACHING:
             delete_teaching();
+            system("pause");
             break;
         case TEACHING_MANAGEMENT_RETURN:
-            printf("返回主菜單\n");
-            break;
+            return;
         default:
-            printf("無效選項，請重新輸入\n");
+            printf("\n無效選項，請重新輸入\n");
+            system("pause");
             break;
         }
-    } while (option != '5');
+    }
 }

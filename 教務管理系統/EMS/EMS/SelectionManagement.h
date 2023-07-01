@@ -17,18 +17,20 @@ enum SelectionManagementOption {
 
 // 選課管理菜單
 void selection_management_menu() {
-    printf("選課管理\n");
-    printf("1. 查詢所有選課信息\n");
-    printf("2. 新增選課\n");
-    printf("3. 修改選課信息\n");
-    printf("4. 刪除選課\n");
-    printf("5. 返回主菜單\n");
-    printf("請選擇操作：");
+    system("cls");
+    printf("===========選課管理===========\n");
+    printf("\t1. 查詢所有選課信息\n");
+    printf("\t2. 新增選課\n");
+    printf("\t3. 修改選課信息\n");
+    printf("\t4. 刪除選課\n");
+    printf("\t5. 返回\n");
+    printf("\t請選擇操作：");
 }
 
 // 查詢所有選課信息
 void query_all_selection() {
-    printf("選課信息列表：\n");
+    printf("\n選課信息列表：\n");
+    printf("================================\n");
     printf("選課ID\t課程名稱\t學生姓名\t學生成績\n");
     for (int i = 0; i < selection_count; i++) {
         printf("%d\t%s\t%s\t%.2f\n", selections[i].select_id, selections[i].course.name, selections[i].student.name, selections[i].score);
@@ -38,7 +40,7 @@ void query_all_selection() {
 // 新增選課
 void add_selection() {
     Selection selection;
-    printf("請輸入選課ID：");
+    printf("\n請輸入選課ID：");
     scanf("%d", &selection.select_id);
     printf("請輸入課程編號：");
     scanf("%s", selection.course.course_id);
@@ -90,7 +92,7 @@ void add_selection() {
 // 修改選課信息
 void modify_selection() {
     int select_id;
-    printf("請輸入要修改的選課ID：");
+    printf("\n請輸入要修改的選課ID：");
     scanf("%d", &select_id);
     // 查找選課信息
     int index = -1;
@@ -115,7 +117,7 @@ void modify_selection() {
 // 刪除選課
 void delete_selection() {
     int select_id;
-    printf("請輸入要刪除的選課ID：");
+    printf("\n請輸入要刪除的選課ID：");
     scanf("%d", &select_id);
     // 查找選課信息
     int index = -1;
@@ -140,29 +142,33 @@ void delete_selection() {
 
 // 選課管理
 void selection_management() {
-    int choice;
-    do {
+    while (1) {
         selection_management_menu();
+        int choice;
         scanf("%d", &choice);
         switch (choice) {
         case SELECTION_MANAGEMENT_QUERY_ALL_SELECTION:
             query_all_selection();
+            system("pause");
             break;
         case SELECTION_MANAGEMENT_ADD_SELECTION:
             add_selection();
+            system("pause");
             break;
         case SELECTION_MANAGEMENT_MODIFY_SELECTION:
             modify_selection();
+            system("pause");
             break;
         case SELECTION_MANAGEMENT_DELETE_SELECTION:
             delete_selection();
+            system("pause");
             break;
         case SELECTION_MANAGEMENT_RETURN:
-            printf("返回主菜單\n");
-            break;
+            return;
         default:
-            printf("無效選項，請重新輸入\n");
+            printf("\n無效選項，請重新輸入\n");
+            system("pause");
             break;
         }
-    } while (choice != SELECTION_MANAGEMENT_RETURN);
+    }
 }

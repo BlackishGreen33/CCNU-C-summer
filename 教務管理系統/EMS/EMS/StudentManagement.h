@@ -17,18 +17,20 @@ enum StudentManagementOption {
 
 // 學生管理菜單
 void student_management_menu() {
-    printf("學生管理\n");
-    printf("1. 查詢所有學生信息\n");
-    printf("2. 新增學生\n");
-    printf("3. 修改學生信息\n");
-    printf("4. 刪除學生\n");
-    printf("5. 返回\n");
-    printf("請選擇操作：");
+    system("cls");
+    printf("============學生管理============\n");
+    printf("\t1. 查詢所有學生信息\n");
+    printf("\t2. 新增學生\n");
+    printf("\t3. 修改學生信息\n");
+    printf("\t4. 刪除學生\n");
+    printf("\t5. 返回\n");
+    printf("\t請選擇操作：");
 }
 
 // 查詢所有學生信息
 void query_all_students() {
     printf("所有學生信息如下：\n");
+    printf("================================\n");
     printf("學生編號\t學生姓名\t學生性別\t學生班級\n");
     for (int i = 0; i < student_count; i++) {
         printf("%s\t%s\t%s\t%s\n", students[i].student_id, students[i].name, students[i].gender, students[i].classroom);
@@ -38,7 +40,7 @@ void query_all_students() {
 // 新增學生
 void add_student() {
     Student student;
-    printf("請輸入新學生信息：\n");
+    printf("\n請輸入新學生信息：\n");
     printf("學生編號：");
     scanf("%s", student.student_id);
     printf("學生姓名：");
@@ -54,7 +56,7 @@ void add_student() {
 // 修改學生信息
 void modify_student() {
     char student_id[20];
-    printf("請輸入要修改的學生編號：");
+    printf("\n請輸入要修改的學生編號：");
     scanf("%s", student_id);
     int index = -1;
     for (int i = 0; i < student_count; i++) {
@@ -80,7 +82,7 @@ void modify_student() {
 // 刪除學生
 void delete_student() {
     char student_id[20];
-    printf("請輸入要刪除的學生編號：");
+    printf("\n請輸入要刪除的學生編號：");
     scanf("%s", student_id);
     int index = -1;
     for (int i = 0; i < student_count; i++) {
@@ -111,20 +113,25 @@ void student_management() {
         switch (option) {
         case STUDENT_MANAGEMENT_QUERY_ALL_STUDENTS:
             query_all_students();
+            system("pause");
             break;
         case STUDENT_MANAGEMENT_ADD_STUDENT:
             add_student();
+            system("pause");
             break;
         case STUDENT_MANAGEMENT_MODIFY_STUDENT:
             modify_student();
+            system("pause");
             break;
         case STUDENT_MANAGEMENT_DELETE_STUDENT:
             delete_student();
+            system("pause");
             break;
         case STUDENT_MANAGEMENT_RETURN:
             return;
         default:
             printf("無效選項，請重新輸入\n");
+            system("pause");
             break;
         }
     }

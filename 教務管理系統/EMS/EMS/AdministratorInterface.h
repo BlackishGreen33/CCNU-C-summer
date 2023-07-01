@@ -1,4 +1,5 @@
 #pragma once
+#include <Windows.h>
 #include "UserManagement.h"
 #include "TeacherManagement.h"
 #include "StudentManagement.h"
@@ -19,15 +20,16 @@ enum MenuOption {
 
 // 顯示菜單
 void show_menu() {
-	printf("管理員界面\n");
-	printf("1. 用戶管理\n");
-	printf("2. 教師管理\n");
-	printf("3. 學生管理\n");
-	printf("4. 課程管理\n");
-	printf("5. 授課管理\n");
-	printf("6. 選課管理\n");
-	printf("7. 退出\n");
-	printf("請選擇操作：");
+	system("cls");
+	printf("==========管理員界面==========\n");
+	printf("\t1. 用戶管理\n");
+	printf("\t2. 教師管理\n");
+	printf("\t3. 學生管理\n");
+	printf("\t4. 課程管理\n");
+	printf("\t5. 授課管理\n");
+	printf("\t6. 選課管理\n");
+	printf("\t7. 退出\n");
+	printf("\t請選擇操作：");
 }
 
 // 管理員介面
@@ -39,27 +41,35 @@ void administrator_interface() {
 		switch (option) {
 		case MENU_USER_MANAGEMENT:
 			user_management();
+			system("pause");
 			break;
 		case MENU_TEACHER_MANAGEMENT:
 			teacher_management();
+			system("pause");
 			break;
 		case MENU_STUDENT_MANAGEMENT:
 			student_management();
+			system("pause");
 			break;
 		case MENU_COURSE_MANAGEMENT:
 			course_management();
+			system("pause");
 			break;
 		case MENU_TEACHING_MANAGEMENT:
 			teaching_management();
+			system("pause");
 			break;
 		case MENU_SELECTION_MANAGEMENT:
 			selection_management();
+			system("pause");
 			break;
 		case MENU_EXIT:
-			printf("再見！\n");
+			printf("\n再見！\n");
+			system("pause");
 			exit(0);
 		default:
-			printf("無效選項，請重新輸入\n");
+			printf("\n無效選項，請重新輸入\n");
+			system("pause");
 			break;
 		}
 	}

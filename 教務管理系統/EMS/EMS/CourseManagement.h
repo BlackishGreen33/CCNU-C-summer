@@ -17,18 +17,20 @@ enum CourseManagementOption {
 
 // 課程管理菜單
 void course_management_menu() {
-    printf("課程管理\n");
-    printf("1. 查詢所有課程信息\n");
-    printf("2. 新增課程\n");
-    printf("3. 修改課程信息\n");
-    printf("4. 刪除課程\n");
-    printf("5. 返回\n");
-    printf("請選擇操作：");
+    system("cls");
+    printf("===========課程管理===========\n");
+    printf("\t1. 查詢所有課程信息\n");
+    printf("\t2. 新增課程\n");
+    printf("\t3. 修改課程信息\n");
+    printf("\t4. 刪除課程\n");
+    printf("\t5. 返回\n");
+    printf("\t請選擇操作：");
 }
 
 // 查詢所有課程信息
 void query_all_courses() {
     printf("所有課程信息如下：\n");
+    printf("================================\n");
     printf("課程編號\t課程名稱\t課程性質\t課程學時\t課程學分\t開課學期\n");
     for (int i = 0; i < course_count; i++) {
         printf("%s\t%s\t%s\t%d\t%.1f\t%s\n", courses[i].course_id, courses[i].name, courses[i].nature, courses[i].hours, courses[i].credit, courses[i].term);
@@ -38,7 +40,7 @@ void query_all_courses() {
 // 新增課程
 void add_course() {
     Course course;
-    printf("請輸入新課程信息：\n");
+    printf("\n請輸入新課程信息：\n");
     printf("課程編號：");
     scanf("%s", course.course_id);
     printf("課程名稱：");
@@ -60,7 +62,7 @@ void add_course() {
 // 修改課程信息
 void modify_course() {
     char course_id[20];
-    printf("請輸入要修改的課程編號：");
+    printf("\n請輸入要修改的課程編號：");
     scanf("%s", course_id);
     int index = -1;
     for (int i = 0; i < course_count; i++) {
@@ -93,7 +95,7 @@ void modify_course() {
 // 刪除課程
 void delete_course() {
     char course_id[20];
-    printf("請輸入要刪除的課程編號：");
+    printf("\n請輸入要刪除的課程編號：");
     scanf("%s", course_id);
     int index = -1;
     for (int i = 0; i < course_count; i++) {
@@ -122,25 +124,29 @@ void course_management() {
     while (1) {
         course_management_menu();
         int option;
-        printf("請選擇操作：");
         scanf("%d", &option);
         switch (option) {
         case COURSE_MANAGEMENT_QUERY_ALL_COURSES:
             query_all_courses();
+            system("pause");
             break;
         case COURSE_MANAGEMENT_ADD_COURSE:
             add_course();
+            system("pause");
             break;
         case COURSE_MANAGEMENT_MODIFY_COURSE:
             modify_course();
+            system("pause");
             break;
         case COURSE_MANAGEMENT_DELETE_COURSE:
             delete_course();
+            system("pause");
             break;
         case COURSE_MANAGEMENT_RETURN:
             return;
         default:
-            printf("無效的選項，請重新選擇\n");
+            printf("\n無效選項，請重新輸入\n");
+            system("pause");
             break;
         }
     }
