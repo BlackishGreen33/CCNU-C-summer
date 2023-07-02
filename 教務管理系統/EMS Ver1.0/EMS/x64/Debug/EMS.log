@@ -1,0 +1,8 @@
+﻿  main.cpp
+C:\Users\s5460\Desktop\CCNU-C-summer\教務管理系統\EMS v1.0\EMS\UserLogin.h(48,20): warning C4477: 'printf' : 格式字串 '%ld' 需要 'long' 類型的引數，但 variadic 引數 1 的類型為 'time_t'
+C:\Users\s5460\Desktop\CCNU-C-summer\教務管理系統\EMS v1.0\EMS\UserLogin.h(48,20): message : 請考慮在格式字串中使用 '%lld'
+C:\Users\s5460\Desktop\CCNU-C-summer\教務管理系統\EMS v1.0\EMS\UserLogin.h(48,20): message : 請考慮在格式字串中使用 '%Id'
+C:\Users\s5460\Desktop\CCNU-C-summer\教務管理系統\EMS v1.0\EMS\UserLogin.h(48,20): message : 請考慮在格式字串中使用 '%I64d'
+C:\Users\s5460\Desktop\CCNU-C-summer\教務管理系統\EMS v1.0\EMS\UserLogin.h(21,9): warning C4101: 'i': 未參考的區域變數
+C:\Users\s5460\Desktop\CCNU-C-summer\教務管理系統\EMS v1.0\EMS\TeacherManageSelections.h(1,1): warning C4819: 檔案含有無法在目前字碼頁 (936) 中表示的字元。請以 Unicode 格式儲存檔案以防止資料遺失
+  EMS.vcxproj -> C:\Users\s5460\Desktop\CCNU-C-summer\教務管理系統\EMS v1.0\x64\Debug\EMS.exe
