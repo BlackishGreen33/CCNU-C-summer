@@ -1,0 +1,3 @@
+﻿  main.cpp
+C:\Users\s5460\Desktop\CCNU-C-summer\教務管理系統\EMS Ver1.6\HiEasyX\UserLogin.h(198): warning C4715: 'user_login': 不是所有控制路徑都傳回值
+  HiEasyX.vcxproj -> C:\Users\s5460\Desktop\CCNU-C-summer\教務管理系統\EMS Ver1.6\x64\Debug\HiEasyX.exe
